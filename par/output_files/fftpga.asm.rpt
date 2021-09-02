@@ -1,5 +1,5 @@
 Assembler report for fftpga
-Thu Jul 15 16:54:11 2021
+Fri Jul 16 12:55:44 2021
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Full Version
 
 
@@ -38,9 +38,9 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Thu Jul 15 16:54:11 2021 ;
+; Assembler Status      ; Successful - Fri Jul 16 12:55:44 2021 ;
 ; Revision Name         ; fftpga                                ;
-; Top-level Entity Name ; fftpga                                ;
+; Top-level Entity Name ; firpga                                ;
 ; Family                ; Cyclone IV E                          ;
 ; Device                ; EP4CE10F17C8                          ;
 +-----------------------+---------------------------------------+
@@ -104,8 +104,8 @@ applicable agreement for further details.
 ; Option         ; Setting                                                                   ;
 +----------------+---------------------------------------------------------------------------+
 ; Device         ; EP4CE10F17C8                                                              ;
-; JTAG usercode  ; 0x0069E100                                                                ;
-; Checksum       ; 0x0069E100                                                                ;
+; JTAG usercode  ; 0x006EB19E                                                                ;
+; Checksum       ; 0x006EB19E                                                                ;
 +----------------+---------------------------------------------------------------------------+
 
 
@@ -115,16 +115,16 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Full Version
-    Info: Processing started: Thu Jul 15 16:54:08 2021
-Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off fftpga -c fftpga
+    Info: Processing started: Fri Jul 16 12:55:41 2021
+Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off firpga -c fftpga
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info (115017): Design contains a time-limited core -- only a single, time-limited programming file can be generated
 Warning (210042): Can't convert time-limited SOF into POF, HEX File, TTF, or RBF
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 4648 megabytes
-    Info: Processing ended: Thu Jul 15 16:54:11 2021
+    Info: Processing ended: Fri Jul 16 12:55:44 2021
     Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Total CPU time (on all processors): 00:00:03
 
 

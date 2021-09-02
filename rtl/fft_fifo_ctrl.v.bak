@@ -1,5 +1,0 @@
-module fft_fifo_ctrl (
-	input             sys_clk,
-	input             sys_rst,
-	
-);

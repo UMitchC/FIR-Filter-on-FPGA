@@ -1,4 +1,4 @@
-|fftpga
+|firpga
 sys_clk => sys_clk.IN4
 sys_rst => sys_rst.IN4
 aud_bclk => aud_bclk.IN3
@@ -20,41 +20,41 @@ key0 => audio_data_out.OUTPUTSELECT
 key0 => audio_data_out.OUTPUTSELECT
 key0 => audio_data_out.OUTPUTSELECT
 key0 => audio_data_out.OUTPUTSELECT
-aud_mclk <= pll_clk:u_pll_clk.c0
-aud_dacdat <= wm8978_ctrl:u_wm8978_ctrl.aud_dacdat
-aud_scl <= wm8978_ctrl:u_wm8978_ctrl.aud_scl
+aud_mclk << pll_clk:u_pll_clk.c0
+aud_dacdat << wm8978_ctrl:u_wm8978_ctrl.aud_dacdat
+aud_scl << wm8978_ctrl:u_wm8978_ctrl.aud_scl
 aud_sda <> wm8978_ctrl:u_wm8978_ctrl.aud_sda
-lcd_hs <= lcd_top:u_lcd_top.lcd_hs
-lcd_vs <= lcd_top:u_lcd_top.lcd_vs
-lcd_de <= lcd_top:u_lcd_top.lcd_de
-lcd_rgb[0] <= lcd_top:u_lcd_top.lcd_rgb
-lcd_rgb[1] <= lcd_top:u_lcd_top.lcd_rgb
-lcd_rgb[2] <= lcd_top:u_lcd_top.lcd_rgb
-lcd_rgb[3] <= lcd_top:u_lcd_top.lcd_rgb
-lcd_rgb[4] <= lcd_top:u_lcd_top.lcd_rgb
-lcd_rgb[5] <= lcd_top:u_lcd_top.lcd_rgb
-lcd_rgb[6] <= lcd_top:u_lcd_top.lcd_rgb
-lcd_rgb[7] <= lcd_top:u_lcd_top.lcd_rgb
-lcd_rgb[8] <= lcd_top:u_lcd_top.lcd_rgb
-lcd_rgb[9] <= lcd_top:u_lcd_top.lcd_rgb
-lcd_rgb[10] <= lcd_top:u_lcd_top.lcd_rgb
-lcd_rgb[11] <= lcd_top:u_lcd_top.lcd_rgb
-lcd_rgb[12] <= lcd_top:u_lcd_top.lcd_rgb
-lcd_rgb[13] <= lcd_top:u_lcd_top.lcd_rgb
-lcd_rgb[14] <= lcd_top:u_lcd_top.lcd_rgb
-lcd_rgb[15] <= lcd_top:u_lcd_top.lcd_rgb
-lcd_bl <= lcd_top:u_lcd_top.lcd_bl
-lcd_rst <= lcd_top:u_lcd_top.lcd_rst
-lcd_pclk <= lcd_top:u_lcd_top.lcd_pclk
+lcd_hs << lcd_top:u_lcd_top.lcd_hs
+lcd_vs << lcd_top:u_lcd_top.lcd_vs
+lcd_de << lcd_top:u_lcd_top.lcd_de
+lcd_rgb[0] << lcd_top:u_lcd_top.lcd_rgb
+lcd_rgb[1] << lcd_top:u_lcd_top.lcd_rgb
+lcd_rgb[2] << lcd_top:u_lcd_top.lcd_rgb
+lcd_rgb[3] << lcd_top:u_lcd_top.lcd_rgb
+lcd_rgb[4] << lcd_top:u_lcd_top.lcd_rgb
+lcd_rgb[5] << lcd_top:u_lcd_top.lcd_rgb
+lcd_rgb[6] << lcd_top:u_lcd_top.lcd_rgb
+lcd_rgb[7] << lcd_top:u_lcd_top.lcd_rgb
+lcd_rgb[8] << lcd_top:u_lcd_top.lcd_rgb
+lcd_rgb[9] << lcd_top:u_lcd_top.lcd_rgb
+lcd_rgb[10] << lcd_top:u_lcd_top.lcd_rgb
+lcd_rgb[11] << lcd_top:u_lcd_top.lcd_rgb
+lcd_rgb[12] << lcd_top:u_lcd_top.lcd_rgb
+lcd_rgb[13] << lcd_top:u_lcd_top.lcd_rgb
+lcd_rgb[14] << lcd_top:u_lcd_top.lcd_rgb
+lcd_rgb[15] << lcd_top:u_lcd_top.lcd_rgb
+lcd_bl << lcd_top:u_lcd_top.lcd_bl
+lcd_rst << lcd_top:u_lcd_top.lcd_rst
+lcd_pclk << lcd_top:u_lcd_top.lcd_pclk
 
 
-|fftpga|pll_clk:u_pll_clk
+|firpga|pll_clk:u_pll_clk
 areset => areset.IN1
 inclk0 => sub_wire3[0].IN1
 c0 <= altpll:altpll_component.clk
 
 
-|fftpga|pll_clk:u_pll_clk|altpll:altpll_component
+|firpga|pll_clk:u_pll_clk|altpll:altpll_component
 inclk[0] => pll_clk_altpll:auto_generated.inclk[0]
 inclk[1] => pll_clk_altpll:auto_generated.inclk[1]
 fbin => ~NO_FANOUT~
@@ -114,7 +114,7 @@ fref <= <GND>
 icdrclk <= <GND>
 
 
-|fftpga|pll_clk:u_pll_clk|altpll:altpll_component|pll_clk_altpll:auto_generated
+|firpga|pll_clk:u_pll_clk|altpll:altpll_component|pll_clk_altpll:auto_generated
 areset => pll1.ARESET
 clk[0] <= pll1.CLK
 clk[1] <= pll1.CLK1
@@ -125,7 +125,7 @@ inclk[0] => pll1.CLK
 inclk[1] => pll1.CLK1
 
 
-|fftpga|wm8978_ctrl:u_wm8978_ctrl
+|firpga|wm8978_ctrl:u_wm8978_ctrl
 clk => clk.IN1
 rst_n => rst_n.IN3
 aud_bclk => aud_bclk.IN2
@@ -202,7 +202,7 @@ rx_done <= audio_receive:u_audio_receive.rx_done
 tx_done <= audio_send:u_audio_send.tx_done
 
 
-|fftpga|wm8978_ctrl:u_wm8978_ctrl|wm8978_config:u_wm8978_config
+|firpga|wm8978_ctrl:u_wm8978_ctrl|wm8978_config:u_wm8978_config
 clk => clk.IN1
 rst_n => rst_n.IN2
 i2c_ack <= i2c_dri:u_i2c_dri.i2c_ack
@@ -210,7 +210,7 @@ aud_scl <= i2c_dri:u_i2c_dri.scl
 aud_sda <> i2c_dri:u_i2c_dri.sda
 
 
-|fftpga|wm8978_ctrl:u_wm8978_ctrl|wm8978_config:u_wm8978_config|i2c_reg_cfg:u_i2c_reg_cfg
+|firpga|wm8978_ctrl:u_wm8978_ctrl|wm8978_config:u_wm8978_config|i2c_reg_cfg:u_i2c_reg_cfg
 clk => i2c_data[0]~reg0.CLK
 clk => i2c_data[1]~reg0.CLK
 clk => i2c_data[2]~reg0.CLK
@@ -299,7 +299,7 @@ i2c_data[14] <= i2c_data[14]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 i2c_data[15] <= i2c_data[15]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|wm8978_ctrl:u_wm8978_ctrl|wm8978_config:u_wm8978_config|i2c_dri:u_i2c_dri
+|firpga|wm8978_ctrl:u_wm8978_ctrl|wm8978_config:u_wm8978_config|i2c_dri:u_i2c_dri
 clk => clk_cnt[0].CLK
 clk => clk_cnt[1].CLK
 clk => clk_cnt[2].CLK
@@ -447,7 +447,7 @@ sda <> sda
 dri_clk <= dri_clk~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|wm8978_ctrl:u_wm8978_ctrl|audio_receive:u_audio_receive
+|firpga|wm8978_ctrl:u_wm8978_ctrl|audio_receive:u_audio_receive
 aud_bclk => adc_data[0]~reg0.CLK
 aud_bclk => adc_data[1]~reg0.CLK
 aud_bclk => adc_data[2]~reg0.CLK
@@ -661,7 +661,7 @@ adc_data[30] <= adc_data[30]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 adc_data[31] <= adc_data[31]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|wm8978_ctrl:u_wm8978_ctrl|audio_send:u_audio_send
+|firpga|wm8978_ctrl:u_wm8978_ctrl|audio_send:u_audio_send
 sys_rst => dac_data_t[0].ACLR
 sys_rst => dac_data_t[1].ACLR
 sys_rst => dac_data_t[2].ACLR
@@ -782,7 +782,7 @@ dac_data[31] => dac_data_t[31].DATAIN
 tx_done <= tx_done~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top
+|firpga|fft_top:u_fft_top
 sys_clk => sys_clk.IN4
 sys_rst => sys_rst.IN2
 audio_clk => audio_clk.IN1
@@ -824,7 +824,7 @@ data_modulus[14] <= data_modulus:u_data_modulus.data_modulus
 data_modulus[15] <= data_modulus:u_data_modulus.data_modulus
 
 
-|fftpga|fft_top:u_fft_top|audio_in_fifo:fifo_inst
+|firpga|fft_top:u_fft_top|audio_in_fifo:fifo_inst
 aclr => aclr.IN1
 data[0] => data[0].IN1
 data[1] => data[1].IN1
@@ -865,7 +865,7 @@ q[15] <= dcfifo:dcfifo_component.q
 rdempty <= dcfifo:dcfifo_component.rdempty
 
 
-|fftpga|fft_top:u_fft_top|audio_in_fifo:fifo_inst|dcfifo:dcfifo_component
+|firpga|fft_top:u_fft_top|audio_in_fifo:fifo_inst|dcfifo:dcfifo_component
 data[0] => dcfifo_8gj1:auto_generated.data[0]
 data[1] => dcfifo_8gj1:auto_generated.data[1]
 data[2] => dcfifo_8gj1:auto_generated.data[2]
@@ -921,7 +921,7 @@ wrusedw[4] <= <GND>
 wrusedw[5] <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|audio_in_fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_8gj1:auto_generated
+|firpga|fft_top:u_fft_top|audio_in_fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_8gj1:auto_generated
 aclr => a_graycounter_r57:rdptr_g1p.aclr
 aclr => a_graycounter_njc:wrptr_g1p.aclr
 aclr => altsyncram_oj31:fifo_ram.aclr1
@@ -994,7 +994,7 @@ wrclk => wrptr_g[0].CLK
 wrreq => valid_wrreq.IN0
 
 
-|fftpga|fft_top:u_fft_top|audio_in_fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_8gj1:auto_generated|a_graycounter_r57:rdptr_g1p
+|firpga|fft_top:u_fft_top|audio_in_fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_8gj1:auto_generated|a_graycounter_r57:rdptr_g1p
 aclr => counter5a1.IN0
 aclr => counter5a0.IN0
 aclr => parity6.IN0
@@ -1029,7 +1029,7 @@ q[5] <= counter5a5.DB_MAX_OUTPUT_PORT_TYPE
 q[6] <= counter5a6.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|audio_in_fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_8gj1:auto_generated|a_graycounter_njc:wrptr_g1p
+|firpga|fft_top:u_fft_top|audio_in_fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_8gj1:auto_generated|a_graycounter_njc:wrptr_g1p
 aclr => counter8a1.IN0
 aclr => counter8a0.IN0
 aclr => parity9.IN0
@@ -1064,7 +1064,7 @@ q[5] <= counter8a5.DB_MAX_OUTPUT_PORT_TYPE
 q[6] <= counter8a6.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|audio_in_fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_8gj1:auto_generated|altsyncram_oj31:fifo_ram
+|firpga|fft_top:u_fft_top|audio_in_fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_8gj1:auto_generated|altsyncram_oj31:fifo_ram
 aclr1 => ram_block11a0.CLR1
 aclr1 => ram_block11a1.CLR1
 aclr1 => ram_block11a2.CLR1
@@ -1403,7 +1403,7 @@ wren_a => ram_block11a15.PORTAWE
 wren_a => ram_block11a15.ENA0
 
 
-|fftpga|fft_top:u_fft_top|audio_in_fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_8gj1:auto_generated|alt_synch_pipe_gkd:rs_dgwp
+|firpga|fft_top:u_fft_top|audio_in_fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_8gj1:auto_generated|alt_synch_pipe_gkd:rs_dgwp
 clock => dffpipe_fd9:dffpipe12.clock
 clrn => dffpipe_fd9:dffpipe12.clrn
 d[0] => dffpipe_fd9:dffpipe12.d[0]
@@ -1422,7 +1422,7 @@ q[5] <= dffpipe_fd9:dffpipe12.q[5]
 q[6] <= dffpipe_fd9:dffpipe12.q[6]
 
 
-|fftpga|fft_top:u_fft_top|audio_in_fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_8gj1:auto_generated|alt_synch_pipe_gkd:rs_dgwp|dffpipe_fd9:dffpipe12
+|firpga|fft_top:u_fft_top|audio_in_fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_8gj1:auto_generated|alt_synch_pipe_gkd:rs_dgwp|dffpipe_fd9:dffpipe12
 clock => dffe13a[6].CLK
 clock => dffe13a[5].CLK
 clock => dffe13a[4].CLK
@@ -1467,7 +1467,7 @@ q[5] <= dffe14a[5].DB_MAX_OUTPUT_PORT_TYPE
 q[6] <= dffe14a[6].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|audio_in_fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_8gj1:auto_generated|alt_synch_pipe_hkd:ws_dgrp
+|firpga|fft_top:u_fft_top|audio_in_fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_8gj1:auto_generated|alt_synch_pipe_hkd:ws_dgrp
 clock => dffpipe_gd9:dffpipe15.clock
 clrn => dffpipe_gd9:dffpipe15.clrn
 d[0] => dffpipe_gd9:dffpipe15.d[0]
@@ -1486,7 +1486,7 @@ q[5] <= dffpipe_gd9:dffpipe15.q[5]
 q[6] <= dffpipe_gd9:dffpipe15.q[6]
 
 
-|fftpga|fft_top:u_fft_top|audio_in_fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_8gj1:auto_generated|alt_synch_pipe_hkd:ws_dgrp|dffpipe_gd9:dffpipe15
+|firpga|fft_top:u_fft_top|audio_in_fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_8gj1:auto_generated|alt_synch_pipe_hkd:ws_dgrp|dffpipe_gd9:dffpipe15
 clock => dffe16a[6].CLK
 clock => dffe16a[5].CLK
 clock => dffe16a[4].CLK
@@ -1531,7 +1531,7 @@ q[5] <= dffe17a[5].DB_MAX_OUTPUT_PORT_TYPE
 q[6] <= dffe17a[6].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|audio_in_fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_8gj1:auto_generated|cmpr_d66:rdempty_eq_comp
+|firpga|fft_top:u_fft_top|audio_in_fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_8gj1:auto_generated|cmpr_d66:rdempty_eq_comp
 aeb <= aeb_result_wire[0].DB_MAX_OUTPUT_PORT_TYPE
 dataa[0] => data_wire[0].IN0
 dataa[1] => data_wire[0].IN0
@@ -1549,7 +1549,7 @@ datab[5] => data_wire[2].IN1
 datab[6] => data_wire[3].IN1
 
 
-|fftpga|fft_top:u_fft_top|audio_in_fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_8gj1:auto_generated|cmpr_d66:wrfull_eq_comp
+|firpga|fft_top:u_fft_top|audio_in_fifo:fifo_inst|dcfifo:dcfifo_component|dcfifo_8gj1:auto_generated|cmpr_d66:wrfull_eq_comp
 aeb <= aeb_result_wire[0].DB_MAX_OUTPUT_PORT_TYPE
 dataa[0] => data_wire[0].IN0
 dataa[1] => data_wire[0].IN0
@@ -1567,7 +1567,7 @@ datab[5] => data_wire[2].IN1
 datab[6] => data_wire[3].IN1
 
 
-|fftpga|fft_top:u_fft_top|fft_fifo_ctrl:u_fft_ctrl
+|firpga|fft_top:u_fft_top|fft_fifo_ctrl:u_fft_ctrl
 sys_clk => delay_cnt[0].CLK
 sys_clk => delay_cnt[1].CLK
 sys_clk => delay_cnt[2].CLK
@@ -1616,7 +1616,7 @@ fft_rst_n <= fft_rst_n~reg0.DB_MAX_OUTPUT_PORT_TYPE
 fft_valid <= fft_valid~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft
+|firpga|fft_top:u_fft_top|fft:u_fft
 clk => clk.IN1
 reset_n => reset_n.IN1
 inverse => inverse.IN1
@@ -1704,7 +1704,7 @@ source_imag[14] <= asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst.sour
 source_imag[15] <= asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst.source_imag
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst
 clk => auk_dspip_avalon_streaming_sink_fft_131:auk_dsp_atlantic_sink_1.clk
 clk => master_sink_ena.CLK
 clk => fft_dirn_stream.CLK
@@ -2748,7 +2748,7 @@ source_sop <= auk_dspip_avalon_streaming_source_fft_131:auk_dsp_atlantic_source_
 source_eop <= auk_dspip_avalon_streaming_source_fft_131:auk_dsp_atlantic_source_1.at_source_eop
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|auk_dspip_avalon_streaming_sink_fft_131:auk_dsp_atlantic_sink_1
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|auk_dspip_avalon_streaming_sink_fft_131:auk_dsp_atlantic_sink_1
 clk => scfifo:normal_fifo:fifo_eab_on:in_fifo.clock
 clk => sink_start.CLK
 clk => send_eop_s.CLK
@@ -2972,7 +2972,7 @@ at_sink_error[1] => packet_error_int.DATAB
 at_sink_error[1] => packet_error_int.DATAB
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|auk_dspip_avalon_streaming_sink_fft_131:auk_dsp_atlantic_sink_1|scfifo:\normal_fifo:fifo_eab_on:in_fifo
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|auk_dspip_avalon_streaming_sink_fft_131:auk_dsp_atlantic_sink_1|scfifo:\normal_fifo:fifo_eab_on:in_fifo
 data[0] => scfifo_udh1:auto_generated.data[0]
 data[1] => scfifo_udh1:auto_generated.data[1]
 data[2] => scfifo_udh1:auto_generated.data[2]
@@ -3055,7 +3055,7 @@ usedw[1] <= scfifo_udh1:auto_generated.usedw[1]
 usedw[2] <= scfifo_udh1:auto_generated.usedw[2]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|auk_dspip_avalon_streaming_sink_fft_131:auk_dsp_atlantic_sink_1|scfifo:\normal_fifo:fifo_eab_on:in_fifo|scfifo_udh1:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|auk_dspip_avalon_streaming_sink_fft_131:auk_dsp_atlantic_sink_1|scfifo:\normal_fifo:fifo_eab_on:in_fifo|scfifo_udh1:auto_generated
 aclr => a_dpfifo_no81:dpfifo.aclr
 aclr => dffe_af.IN0
 almost_full <= dffe_af.DB_MAX_OUTPUT_PORT_TYPE
@@ -3144,7 +3144,7 @@ wrreq => _.IN0
 wrreq => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|auk_dspip_avalon_streaming_sink_fft_131:auk_dsp_atlantic_sink_1|scfifo:\normal_fifo:fifo_eab_on:in_fifo|scfifo_udh1:auto_generated|a_dpfifo_no81:dpfifo
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|auk_dspip_avalon_streaming_sink_fft_131:auk_dsp_atlantic_sink_1|scfifo:\normal_fifo:fifo_eab_on:in_fifo|scfifo_udh1:auto_generated|a_dpfifo_no81:dpfifo
 aclr => empty_dff.IN0
 aclr => full_dff.IN0
 aclr => low_addressa[2].IN0
@@ -3286,7 +3286,7 @@ wreq => _.IN1
 wreq => wait_state.IN1
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|auk_dspip_avalon_streaming_sink_fft_131:auk_dsp_atlantic_sink_1|scfifo:\normal_fifo:fifo_eab_on:in_fifo|scfifo_udh1:auto_generated|a_dpfifo_no81:dpfifo|altsyncram_ssf1:FIFOram
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|auk_dspip_avalon_streaming_sink_fft_131:auk_dsp_atlantic_sink_1|scfifo:\normal_fifo:fifo_eab_on:in_fifo|scfifo_udh1:auto_generated|a_dpfifo_no81:dpfifo|altsyncram_ssf1:FIFOram
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -3697,7 +3697,7 @@ wren_a => ram_block1a32.PORTAWE
 wren_a => ram_block1a33.PORTAWE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|auk_dspip_avalon_streaming_sink_fft_131:auk_dsp_atlantic_sink_1|scfifo:\normal_fifo:fifo_eab_on:in_fifo|scfifo_udh1:auto_generated|a_dpfifo_no81:dpfifo|cmpr_gs8:almost_full_comparer
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|auk_dspip_avalon_streaming_sink_fft_131:auk_dsp_atlantic_sink_1|scfifo:\normal_fifo:fifo_eab_on:in_fifo|scfifo_udh1:auto_generated|a_dpfifo_no81:dpfifo|cmpr_gs8:almost_full_comparer
 aeb <= aeb_result_wire[0].DB_MAX_OUTPUT_PORT_TYPE
 dataa[0] => data_wire[0].IN0
 dataa[1] => data_wire[0].IN0
@@ -3707,7 +3707,7 @@ datab[1] => data_wire[0].IN1
 datab[2] => data_wire[1].IN1
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|auk_dspip_avalon_streaming_sink_fft_131:auk_dsp_atlantic_sink_1|scfifo:\normal_fifo:fifo_eab_on:in_fifo|scfifo_udh1:auto_generated|a_dpfifo_no81:dpfifo|cmpr_gs8:two_comparison
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|auk_dspip_avalon_streaming_sink_fft_131:auk_dsp_atlantic_sink_1|scfifo:\normal_fifo:fifo_eab_on:in_fifo|scfifo_udh1:auto_generated|a_dpfifo_no81:dpfifo|cmpr_gs8:two_comparison
 aeb <= aeb_result_wire[0].DB_MAX_OUTPUT_PORT_TYPE
 dataa[0] => data_wire[0].IN0
 dataa[1] => data_wire[0].IN0
@@ -3717,7 +3717,7 @@ datab[1] => data_wire[0].IN1
 datab[2] => data_wire[1].IN1
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|auk_dspip_avalon_streaming_sink_fft_131:auk_dsp_atlantic_sink_1|scfifo:\normal_fifo:fifo_eab_on:in_fifo|scfifo_udh1:auto_generated|a_dpfifo_no81:dpfifo|cntr_tnb:rd_ptr_msb
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|auk_dspip_avalon_streaming_sink_fft_131:auk_dsp_atlantic_sink_1|scfifo:\normal_fifo:fifo_eab_on:in_fifo|scfifo_udh1:auto_generated|a_dpfifo_no81:dpfifo|cntr_tnb:rd_ptr_msb
 aclr => counter_reg_bit[1].IN0
 clock => counter_reg_bit[1].CLK
 clock => counter_reg_bit[0].CLK
@@ -3729,7 +3729,7 @@ sclr => _.IN0
 sclr => _.IN0
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|auk_dspip_avalon_streaming_sink_fft_131:auk_dsp_atlantic_sink_1|scfifo:\normal_fifo:fifo_eab_on:in_fifo|scfifo_udh1:auto_generated|a_dpfifo_no81:dpfifo|cntr_ao7:usedw_counter
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|auk_dspip_avalon_streaming_sink_fft_131:auk_dsp_atlantic_sink_1|scfifo:\normal_fifo:fifo_eab_on:in_fifo|scfifo_udh1:auto_generated|a_dpfifo_no81:dpfifo|cntr_ao7:usedw_counter
 aclr => counter_reg_bit[2].IN0
 clock => counter_reg_bit[2].CLK
 clock => counter_reg_bit[1].CLK
@@ -3746,7 +3746,7 @@ updown => counter_comb_bita1.DATAB
 updown => counter_comb_bita2.DATAB
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|auk_dspip_avalon_streaming_sink_fft_131:auk_dsp_atlantic_sink_1|scfifo:\normal_fifo:fifo_eab_on:in_fifo|scfifo_udh1:auto_generated|a_dpfifo_no81:dpfifo|cntr_unb:wr_ptr
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|auk_dspip_avalon_streaming_sink_fft_131:auk_dsp_atlantic_sink_1|scfifo:\normal_fifo:fifo_eab_on:in_fifo|scfifo_udh1:auto_generated|a_dpfifo_no81:dpfifo|cntr_unb:wr_ptr
 aclr => counter_reg_bit[2].IN0
 clock => counter_reg_bit[2].CLK
 clock => counter_reg_bit[1].CLK
@@ -3760,7 +3760,7 @@ sclr => _.IN0
 sclr => _.IN0
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|auk_dspip_avalon_streaming_source_fft_131:auk_dsp_atlantic_source_1
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|auk_dspip_avalon_streaming_source_fft_131:auk_dsp_atlantic_source_1
 clk => was_stalled.CLK
 clk => source_stall_int_d.CLK
 clk => first_data.CLK
@@ -4195,7 +4195,7 @@ at_source_sop <= at_source_sop_s.DB_MAX_OUTPUT_PORT_TYPE
 at_source_eop <= at_source_eop_s.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|auk_dspip_avalon_streaming_controller_fft_131:auk_dsp_interface_controller_1
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|auk_dspip_avalon_streaming_controller_fft_131:auk_dsp_interface_controller_1
 clk => source_packet_error[0]~reg0.CLK
 clk => source_packet_error[1]~reg0.CLK
 clk => stall_reg.CLK
@@ -4228,7 +4228,7 @@ source_valid_ctrl <= source_valid_ctrl.DB_MAX_OUTPUT_PORT_TYPE
 stall <= stall.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_m_k_counter_fft_131:\gen_le256_mk:ctrl
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_m_k_counter_fft_131:\gen_le256_mk:ctrl
 global_clock_enable => k_state.HOLD.OUTPUTSELECT
 global_clock_enable => k_state.NEXT_PASS_UPD.OUTPUTSELECT
 global_clock_enable => k_state.RUN_CNT.OUTPUTSELECT
@@ -4310,7 +4310,7 @@ next_pass <= next_pass_i.DB_MAX_OUTPUT_PORT_TYPE
 blk_done <= blk_done_int.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_tdl_bit_rst_fft_131:delay_ctrl_np
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_tdl_bit_rst_fft_131:delay_ctrl_np
 clk => tdl_arr[0].CLK
 clk => tdl_arr[1].CLK
 clk => tdl_arr[2].CLK
@@ -4345,7 +4345,7 @@ data_in => tdl_arr.DATAA
 data_out <= tdl_arr[9].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_tdl_bit_rst_fft_131:delay_npd
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_tdl_bit_rst_fft_131:delay_npd
 clk => tdl_arr[0].CLK
 clk => tdl_arr[1].CLK
 clk => tdl_arr[2].CLK
@@ -4368,7 +4368,7 @@ data_in => tdl_arr.DATAA
 data_out <= tdl_arr[5].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_tdl_bit_rst_fft_131:delay_bdd
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_tdl_bit_rst_fft_131:delay_bdd
 clk => tdl_arr[0].CLK
 clk => tdl_arr[1].CLK
 clk => tdl_arr[2].CLK
@@ -4391,7 +4391,7 @@ data_in => tdl_arr.DATAA
 data_out <= tdl_arr[5].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_wrengen_fft_131:sel_we
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_wrengen_fft_131:sel_we
 clk => wc_i.CLK
 clk => wd_i.CLK
 clk => lpp_c_i.CLK
@@ -4416,7 +4416,7 @@ wc <= wc_i.DB_MAX_OUTPUT_PORT_TYPE
 wd <= wd_i.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_in_write_sgl_fft_131:writer
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_in_write_sgl_fft_131:writer
 clk => wr_addr[0].CLK
 clk => wr_addr[1].CLK
 clk => wr_addr[2].CLK
@@ -4728,7 +4728,7 @@ data_in_i[14] <= data_in_i[14]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 data_in_i[15] <= data_in_i[15]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_cnt_ctrl_fft_131:ccc
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_cnt_ctrl_fft_131:ccc
 clk => rdaddress_a_bus[0]~reg0.CLK
 clk => rdaddress_a_bus[1]~reg0.CLK
 clk => rdaddress_a_bus[2]~reg0.CLK
@@ -7476,7 +7476,7 @@ ram_data_out3[30] <= ram_data_out3[30]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 ram_data_out3[31] <= ram_data_out3[31]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_A
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_A
 clk => asj_fft_data_ram_fft_131:gen_rams:0:dat_A.clock
 clk => asj_fft_data_ram_fft_131:gen_rams:1:dat_A.clock
 clk => asj_fft_data_ram_fft_131:gen_rams:2:dat_A.clock
@@ -7791,7 +7791,7 @@ data_out[126] <= asj_fft_data_ram_fft_131:gen_rams:0:dat_A.q[30]
 data_out[127] <= asj_fft_data_ram_fft_131:gen_rams:0:dat_A.q[31]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_A|asj_fft_data_ram_fft_131:\gen_rams:0:dat_A
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_A|asj_fft_data_ram_fft_131:\gen_rams:0:dat_A
 global_clock_enable => altsyncram:gen_M4K:altsyncram_component.clocken0
 data[0] => altsyncram:gen_M4K:altsyncram_component.data_a[0]
 data[1] => altsyncram:gen_M4K:altsyncram_component.data_a[1]
@@ -7872,7 +7872,7 @@ q[30] <= altsyncram:gen_M4K:altsyncram_component.q_b[30]
 q[31] <= altsyncram:gen_M4K:altsyncram_component.q_b[31]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_A|asj_fft_data_ram_fft_131:\gen_rams:0:dat_A|altsyncram:\gen_M4K:altsyncram_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_A|asj_fft_data_ram_fft_131:\gen_rams:0:dat_A|altsyncram:\gen_M4K:altsyncram_component
 wren_a => altsyncram_aku3:auto_generated.wren_a
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -8032,7 +8032,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_A|asj_fft_data_ram_fft_131:\gen_rams:0:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_A|asj_fft_data_ram_fft_131:\gen_rams:0:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -8515,7 +8515,7 @@ wren_a => ram_block1a30.PORTAWE
 wren_a => ram_block1a31.PORTAWE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_A|asj_fft_data_ram_fft_131:\gen_rams:1:dat_A
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_A|asj_fft_data_ram_fft_131:\gen_rams:1:dat_A
 global_clock_enable => altsyncram:gen_M4K:altsyncram_component.clocken0
 data[0] => altsyncram:gen_M4K:altsyncram_component.data_a[0]
 data[1] => altsyncram:gen_M4K:altsyncram_component.data_a[1]
@@ -8596,7 +8596,7 @@ q[30] <= altsyncram:gen_M4K:altsyncram_component.q_b[30]
 q[31] <= altsyncram:gen_M4K:altsyncram_component.q_b[31]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_A|asj_fft_data_ram_fft_131:\gen_rams:1:dat_A|altsyncram:\gen_M4K:altsyncram_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_A|asj_fft_data_ram_fft_131:\gen_rams:1:dat_A|altsyncram:\gen_M4K:altsyncram_component
 wren_a => altsyncram_aku3:auto_generated.wren_a
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -8756,7 +8756,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_A|asj_fft_data_ram_fft_131:\gen_rams:1:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_A|asj_fft_data_ram_fft_131:\gen_rams:1:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -9239,7 +9239,7 @@ wren_a => ram_block1a30.PORTAWE
 wren_a => ram_block1a31.PORTAWE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_A|asj_fft_data_ram_fft_131:\gen_rams:2:dat_A
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_A|asj_fft_data_ram_fft_131:\gen_rams:2:dat_A
 global_clock_enable => altsyncram:gen_M4K:altsyncram_component.clocken0
 data[0] => altsyncram:gen_M4K:altsyncram_component.data_a[0]
 data[1] => altsyncram:gen_M4K:altsyncram_component.data_a[1]
@@ -9320,7 +9320,7 @@ q[30] <= altsyncram:gen_M4K:altsyncram_component.q_b[30]
 q[31] <= altsyncram:gen_M4K:altsyncram_component.q_b[31]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_A|asj_fft_data_ram_fft_131:\gen_rams:2:dat_A|altsyncram:\gen_M4K:altsyncram_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_A|asj_fft_data_ram_fft_131:\gen_rams:2:dat_A|altsyncram:\gen_M4K:altsyncram_component
 wren_a => altsyncram_aku3:auto_generated.wren_a
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -9480,7 +9480,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_A|asj_fft_data_ram_fft_131:\gen_rams:2:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_A|asj_fft_data_ram_fft_131:\gen_rams:2:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -9963,7 +9963,7 @@ wren_a => ram_block1a30.PORTAWE
 wren_a => ram_block1a31.PORTAWE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_A|asj_fft_data_ram_fft_131:\gen_rams:3:dat_A
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_A|asj_fft_data_ram_fft_131:\gen_rams:3:dat_A
 global_clock_enable => altsyncram:gen_M4K:altsyncram_component.clocken0
 data[0] => altsyncram:gen_M4K:altsyncram_component.data_a[0]
 data[1] => altsyncram:gen_M4K:altsyncram_component.data_a[1]
@@ -10044,7 +10044,7 @@ q[30] <= altsyncram:gen_M4K:altsyncram_component.q_b[30]
 q[31] <= altsyncram:gen_M4K:altsyncram_component.q_b[31]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_A|asj_fft_data_ram_fft_131:\gen_rams:3:dat_A|altsyncram:\gen_M4K:altsyncram_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_A|asj_fft_data_ram_fft_131:\gen_rams:3:dat_A|altsyncram:\gen_M4K:altsyncram_component
 wren_a => altsyncram_aku3:auto_generated.wren_a
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -10204,7 +10204,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_A|asj_fft_data_ram_fft_131:\gen_rams:3:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_A|asj_fft_data_ram_fft_131:\gen_rams:3:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -10687,7 +10687,7 @@ wren_a => ram_block1a30.PORTAWE
 wren_a => ram_block1a31.PORTAWE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_B
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_B
 clk => asj_fft_data_ram_fft_131:gen_rams:0:dat_A.clock
 clk => asj_fft_data_ram_fft_131:gen_rams:1:dat_A.clock
 clk => asj_fft_data_ram_fft_131:gen_rams:2:dat_A.clock
@@ -11002,7 +11002,7 @@ data_out[126] <= asj_fft_data_ram_fft_131:gen_rams:0:dat_A.q[30]
 data_out[127] <= asj_fft_data_ram_fft_131:gen_rams:0:dat_A.q[31]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_B|asj_fft_data_ram_fft_131:\gen_rams:0:dat_A
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_B|asj_fft_data_ram_fft_131:\gen_rams:0:dat_A
 global_clock_enable => altsyncram:gen_M4K:altsyncram_component.clocken0
 data[0] => altsyncram:gen_M4K:altsyncram_component.data_a[0]
 data[1] => altsyncram:gen_M4K:altsyncram_component.data_a[1]
@@ -11083,7 +11083,7 @@ q[30] <= altsyncram:gen_M4K:altsyncram_component.q_b[30]
 q[31] <= altsyncram:gen_M4K:altsyncram_component.q_b[31]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_B|asj_fft_data_ram_fft_131:\gen_rams:0:dat_A|altsyncram:\gen_M4K:altsyncram_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_B|asj_fft_data_ram_fft_131:\gen_rams:0:dat_A|altsyncram:\gen_M4K:altsyncram_component
 wren_a => altsyncram_aku3:auto_generated.wren_a
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -11243,7 +11243,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_B|asj_fft_data_ram_fft_131:\gen_rams:0:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_B|asj_fft_data_ram_fft_131:\gen_rams:0:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -11726,7 +11726,7 @@ wren_a => ram_block1a30.PORTAWE
 wren_a => ram_block1a31.PORTAWE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_B|asj_fft_data_ram_fft_131:\gen_rams:1:dat_A
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_B|asj_fft_data_ram_fft_131:\gen_rams:1:dat_A
 global_clock_enable => altsyncram:gen_M4K:altsyncram_component.clocken0
 data[0] => altsyncram:gen_M4K:altsyncram_component.data_a[0]
 data[1] => altsyncram:gen_M4K:altsyncram_component.data_a[1]
@@ -11807,7 +11807,7 @@ q[30] <= altsyncram:gen_M4K:altsyncram_component.q_b[30]
 q[31] <= altsyncram:gen_M4K:altsyncram_component.q_b[31]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_B|asj_fft_data_ram_fft_131:\gen_rams:1:dat_A|altsyncram:\gen_M4K:altsyncram_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_B|asj_fft_data_ram_fft_131:\gen_rams:1:dat_A|altsyncram:\gen_M4K:altsyncram_component
 wren_a => altsyncram_aku3:auto_generated.wren_a
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -11967,7 +11967,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_B|asj_fft_data_ram_fft_131:\gen_rams:1:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_B|asj_fft_data_ram_fft_131:\gen_rams:1:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -12450,7 +12450,7 @@ wren_a => ram_block1a30.PORTAWE
 wren_a => ram_block1a31.PORTAWE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_B|asj_fft_data_ram_fft_131:\gen_rams:2:dat_A
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_B|asj_fft_data_ram_fft_131:\gen_rams:2:dat_A
 global_clock_enable => altsyncram:gen_M4K:altsyncram_component.clocken0
 data[0] => altsyncram:gen_M4K:altsyncram_component.data_a[0]
 data[1] => altsyncram:gen_M4K:altsyncram_component.data_a[1]
@@ -12531,7 +12531,7 @@ q[30] <= altsyncram:gen_M4K:altsyncram_component.q_b[30]
 q[31] <= altsyncram:gen_M4K:altsyncram_component.q_b[31]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_B|asj_fft_data_ram_fft_131:\gen_rams:2:dat_A|altsyncram:\gen_M4K:altsyncram_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_B|asj_fft_data_ram_fft_131:\gen_rams:2:dat_A|altsyncram:\gen_M4K:altsyncram_component
 wren_a => altsyncram_aku3:auto_generated.wren_a
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -12691,7 +12691,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_B|asj_fft_data_ram_fft_131:\gen_rams:2:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_B|asj_fft_data_ram_fft_131:\gen_rams:2:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -13174,7 +13174,7 @@ wren_a => ram_block1a30.PORTAWE
 wren_a => ram_block1a31.PORTAWE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_B|asj_fft_data_ram_fft_131:\gen_rams:3:dat_A
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_B|asj_fft_data_ram_fft_131:\gen_rams:3:dat_A
 global_clock_enable => altsyncram:gen_M4K:altsyncram_component.clocken0
 data[0] => altsyncram:gen_M4K:altsyncram_component.data_a[0]
 data[1] => altsyncram:gen_M4K:altsyncram_component.data_a[1]
@@ -13255,7 +13255,7 @@ q[30] <= altsyncram:gen_M4K:altsyncram_component.q_b[30]
 q[31] <= altsyncram:gen_M4K:altsyncram_component.q_b[31]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_B|asj_fft_data_ram_fft_131:\gen_rams:3:dat_A|altsyncram:\gen_M4K:altsyncram_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_B|asj_fft_data_ram_fft_131:\gen_rams:3:dat_A|altsyncram:\gen_M4K:altsyncram_component
 wren_a => altsyncram_aku3:auto_generated.wren_a
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -13415,7 +13415,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_B|asj_fft_data_ram_fft_131:\gen_rams:3:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:dat_B|asj_fft_data_ram_fft_131:\gen_rams:3:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -13898,7 +13898,7 @@ wren_a => ram_block1a30.PORTAWE
 wren_a => ram_block1a31.PORTAWE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_C
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_C
 clk => asj_fft_data_ram_fft_131:gen_rams:0:dat_A.clock
 clk => asj_fft_data_ram_fft_131:gen_rams:1:dat_A.clock
 clk => asj_fft_data_ram_fft_131:gen_rams:2:dat_A.clock
@@ -14213,7 +14213,7 @@ data_out[126] <= asj_fft_data_ram_fft_131:gen_rams:0:dat_A.q[30]
 data_out[127] <= asj_fft_data_ram_fft_131:gen_rams:0:dat_A.q[31]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_C|asj_fft_data_ram_fft_131:\gen_rams:0:dat_A
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_C|asj_fft_data_ram_fft_131:\gen_rams:0:dat_A
 global_clock_enable => altsyncram:gen_M4K:altsyncram_component.clocken0
 data[0] => altsyncram:gen_M4K:altsyncram_component.data_a[0]
 data[1] => altsyncram:gen_M4K:altsyncram_component.data_a[1]
@@ -14294,7 +14294,7 @@ q[30] <= altsyncram:gen_M4K:altsyncram_component.q_b[30]
 q[31] <= altsyncram:gen_M4K:altsyncram_component.q_b[31]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_C|asj_fft_data_ram_fft_131:\gen_rams:0:dat_A|altsyncram:\gen_M4K:altsyncram_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_C|asj_fft_data_ram_fft_131:\gen_rams:0:dat_A|altsyncram:\gen_M4K:altsyncram_component
 wren_a => altsyncram_aku3:auto_generated.wren_a
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -14454,7 +14454,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_C|asj_fft_data_ram_fft_131:\gen_rams:0:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_C|asj_fft_data_ram_fft_131:\gen_rams:0:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -14937,7 +14937,7 @@ wren_a => ram_block1a30.PORTAWE
 wren_a => ram_block1a31.PORTAWE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_C|asj_fft_data_ram_fft_131:\gen_rams:1:dat_A
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_C|asj_fft_data_ram_fft_131:\gen_rams:1:dat_A
 global_clock_enable => altsyncram:gen_M4K:altsyncram_component.clocken0
 data[0] => altsyncram:gen_M4K:altsyncram_component.data_a[0]
 data[1] => altsyncram:gen_M4K:altsyncram_component.data_a[1]
@@ -15018,7 +15018,7 @@ q[30] <= altsyncram:gen_M4K:altsyncram_component.q_b[30]
 q[31] <= altsyncram:gen_M4K:altsyncram_component.q_b[31]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_C|asj_fft_data_ram_fft_131:\gen_rams:1:dat_A|altsyncram:\gen_M4K:altsyncram_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_C|asj_fft_data_ram_fft_131:\gen_rams:1:dat_A|altsyncram:\gen_M4K:altsyncram_component
 wren_a => altsyncram_aku3:auto_generated.wren_a
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -15178,7 +15178,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_C|asj_fft_data_ram_fft_131:\gen_rams:1:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_C|asj_fft_data_ram_fft_131:\gen_rams:1:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -15661,7 +15661,7 @@ wren_a => ram_block1a30.PORTAWE
 wren_a => ram_block1a31.PORTAWE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_C|asj_fft_data_ram_fft_131:\gen_rams:2:dat_A
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_C|asj_fft_data_ram_fft_131:\gen_rams:2:dat_A
 global_clock_enable => altsyncram:gen_M4K:altsyncram_component.clocken0
 data[0] => altsyncram:gen_M4K:altsyncram_component.data_a[0]
 data[1] => altsyncram:gen_M4K:altsyncram_component.data_a[1]
@@ -15742,7 +15742,7 @@ q[30] <= altsyncram:gen_M4K:altsyncram_component.q_b[30]
 q[31] <= altsyncram:gen_M4K:altsyncram_component.q_b[31]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_C|asj_fft_data_ram_fft_131:\gen_rams:2:dat_A|altsyncram:\gen_M4K:altsyncram_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_C|asj_fft_data_ram_fft_131:\gen_rams:2:dat_A|altsyncram:\gen_M4K:altsyncram_component
 wren_a => altsyncram_aku3:auto_generated.wren_a
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -15902,7 +15902,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_C|asj_fft_data_ram_fft_131:\gen_rams:2:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_C|asj_fft_data_ram_fft_131:\gen_rams:2:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -16385,7 +16385,7 @@ wren_a => ram_block1a30.PORTAWE
 wren_a => ram_block1a31.PORTAWE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_C|asj_fft_data_ram_fft_131:\gen_rams:3:dat_A
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_C|asj_fft_data_ram_fft_131:\gen_rams:3:dat_A
 global_clock_enable => altsyncram:gen_M4K:altsyncram_component.clocken0
 data[0] => altsyncram:gen_M4K:altsyncram_component.data_a[0]
 data[1] => altsyncram:gen_M4K:altsyncram_component.data_a[1]
@@ -16466,7 +16466,7 @@ q[30] <= altsyncram:gen_M4K:altsyncram_component.q_b[30]
 q[31] <= altsyncram:gen_M4K:altsyncram_component.q_b[31]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_C|asj_fft_data_ram_fft_131:\gen_rams:3:dat_A|altsyncram:\gen_M4K:altsyncram_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_C|asj_fft_data_ram_fft_131:\gen_rams:3:dat_A|altsyncram:\gen_M4K:altsyncram_component
 wren_a => altsyncram_aku3:auto_generated.wren_a
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -16626,7 +16626,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_C|asj_fft_data_ram_fft_131:\gen_rams:3:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_C|asj_fft_data_ram_fft_131:\gen_rams:3:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -17109,7 +17109,7 @@ wren_a => ram_block1a30.PORTAWE
 wren_a => ram_block1a31.PORTAWE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_D
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_D
 clk => asj_fft_data_ram_fft_131:gen_rams:0:dat_A.clock
 clk => asj_fft_data_ram_fft_131:gen_rams:1:dat_A.clock
 clk => asj_fft_data_ram_fft_131:gen_rams:2:dat_A.clock
@@ -17424,7 +17424,7 @@ data_out[126] <= asj_fft_data_ram_fft_131:gen_rams:0:dat_A.q[30]
 data_out[127] <= asj_fft_data_ram_fft_131:gen_rams:0:dat_A.q[31]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_D|asj_fft_data_ram_fft_131:\gen_rams:0:dat_A
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_D|asj_fft_data_ram_fft_131:\gen_rams:0:dat_A
 global_clock_enable => altsyncram:gen_M4K:altsyncram_component.clocken0
 data[0] => altsyncram:gen_M4K:altsyncram_component.data_a[0]
 data[1] => altsyncram:gen_M4K:altsyncram_component.data_a[1]
@@ -17505,7 +17505,7 @@ q[30] <= altsyncram:gen_M4K:altsyncram_component.q_b[30]
 q[31] <= altsyncram:gen_M4K:altsyncram_component.q_b[31]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_D|asj_fft_data_ram_fft_131:\gen_rams:0:dat_A|altsyncram:\gen_M4K:altsyncram_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_D|asj_fft_data_ram_fft_131:\gen_rams:0:dat_A|altsyncram:\gen_M4K:altsyncram_component
 wren_a => altsyncram_aku3:auto_generated.wren_a
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -17665,7 +17665,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_D|asj_fft_data_ram_fft_131:\gen_rams:0:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_D|asj_fft_data_ram_fft_131:\gen_rams:0:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -18148,7 +18148,7 @@ wren_a => ram_block1a30.PORTAWE
 wren_a => ram_block1a31.PORTAWE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_D|asj_fft_data_ram_fft_131:\gen_rams:1:dat_A
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_D|asj_fft_data_ram_fft_131:\gen_rams:1:dat_A
 global_clock_enable => altsyncram:gen_M4K:altsyncram_component.clocken0
 data[0] => altsyncram:gen_M4K:altsyncram_component.data_a[0]
 data[1] => altsyncram:gen_M4K:altsyncram_component.data_a[1]
@@ -18229,7 +18229,7 @@ q[30] <= altsyncram:gen_M4K:altsyncram_component.q_b[30]
 q[31] <= altsyncram:gen_M4K:altsyncram_component.q_b[31]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_D|asj_fft_data_ram_fft_131:\gen_rams:1:dat_A|altsyncram:\gen_M4K:altsyncram_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_D|asj_fft_data_ram_fft_131:\gen_rams:1:dat_A|altsyncram:\gen_M4K:altsyncram_component
 wren_a => altsyncram_aku3:auto_generated.wren_a
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -18389,7 +18389,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_D|asj_fft_data_ram_fft_131:\gen_rams:1:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_D|asj_fft_data_ram_fft_131:\gen_rams:1:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -18872,7 +18872,7 @@ wren_a => ram_block1a30.PORTAWE
 wren_a => ram_block1a31.PORTAWE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_D|asj_fft_data_ram_fft_131:\gen_rams:2:dat_A
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_D|asj_fft_data_ram_fft_131:\gen_rams:2:dat_A
 global_clock_enable => altsyncram:gen_M4K:altsyncram_component.clocken0
 data[0] => altsyncram:gen_M4K:altsyncram_component.data_a[0]
 data[1] => altsyncram:gen_M4K:altsyncram_component.data_a[1]
@@ -18953,7 +18953,7 @@ q[30] <= altsyncram:gen_M4K:altsyncram_component.q_b[30]
 q[31] <= altsyncram:gen_M4K:altsyncram_component.q_b[31]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_D|asj_fft_data_ram_fft_131:\gen_rams:2:dat_A|altsyncram:\gen_M4K:altsyncram_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_D|asj_fft_data_ram_fft_131:\gen_rams:2:dat_A|altsyncram:\gen_M4K:altsyncram_component
 wren_a => altsyncram_aku3:auto_generated.wren_a
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -19113,7 +19113,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_D|asj_fft_data_ram_fft_131:\gen_rams:2:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_D|asj_fft_data_ram_fft_131:\gen_rams:2:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -19596,7 +19596,7 @@ wren_a => ram_block1a30.PORTAWE
 wren_a => ram_block1a31.PORTAWE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_D|asj_fft_data_ram_fft_131:\gen_rams:3:dat_A
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_D|asj_fft_data_ram_fft_131:\gen_rams:3:dat_A
 global_clock_enable => altsyncram:gen_M4K:altsyncram_component.clocken0
 data[0] => altsyncram:gen_M4K:altsyncram_component.data_a[0]
 data[1] => altsyncram:gen_M4K:altsyncram_component.data_a[1]
@@ -19677,7 +19677,7 @@ q[30] <= altsyncram:gen_M4K:altsyncram_component.q_b[30]
 q[31] <= altsyncram:gen_M4K:altsyncram_component.q_b[31]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_D|asj_fft_data_ram_fft_131:\gen_rams:3:dat_A|altsyncram:\gen_M4K:altsyncram_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_D|asj_fft_data_ram_fft_131:\gen_rams:3:dat_A|altsyncram:\gen_M4K:altsyncram_component
 wren_a => altsyncram_aku3:auto_generated.wren_a
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -19837,7 +19837,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_D|asj_fft_data_ram_fft_131:\gen_rams:3:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_4dp_ram_fft_131:\gen_M4K_Output:dat_D|asj_fft_data_ram_fft_131:\gen_rams:3:dat_A|altsyncram:\gen_M4K:altsyncram_component|altsyncram_aku3:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -20320,7 +20320,7 @@ wren_a => ram_block1a30.PORTAWE
 wren_a => ram_block1a31.PORTAWE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dataadgen_fft_131:rd_adgen
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dataadgen_fft_131:rd_adgen
 clk => rd_addr_d[0]~reg0.CLK
 clk => rd_addr_d[1]~reg0.CLK
 clk => rd_addr_d[2]~reg0.CLK
@@ -20446,7 +20446,7 @@ sw_data_read[0] <= sw[0].DB_MAX_OUTPUT_PORT_TYPE
 sw_data_read[1] <= sw[1].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_cxb_addr_fft_131:ram_cxb_rd
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_cxb_addr_fft_131:ram_cxb_rd
 clk => ram_in_reg[3][0].CLK
 clk => ram_in_reg[3][1].CLK
 clk => ram_in_reg[3][2].CLK
@@ -20629,7 +20629,7 @@ sw_3_out[3] <= ram_in_reg[3][3].DB_MAX_OUTPUT_PORT_TYPE
 sw_3_out[4] <= ram_in_reg[3][4].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_wrswgen_fft_131:\gen_wrsw_1:get_wr_swtiches
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_wrswgen_fft_131:\gen_wrsw_1:get_wr_swtiches
 clk => swa[0].CLK
 clk => swa[1].CLK
 clk => swd[0].CLK
@@ -20800,7 +20800,7 @@ sw_addr_write[0] <= swa_tdl[16][0].DB_MAX_OUTPUT_PORT_TYPE
 sw_addr_write[1] <= swa_tdl[16][1].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_cxb_addr_fft_131:\gen_wrsw_1:ram_cxb_wr
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_cxb_addr_fft_131:\gen_wrsw_1:ram_cxb_wr
 clk => ram_in_reg[3][0].CLK
 clk => ram_in_reg[3][1].CLK
 clk => ram_in_reg[3][2].CLK
@@ -21563,7 +21563,7 @@ sw_3_out[3] <= ram_in_reg[3][3].DB_MAX_OUTPUT_PORT_TYPE
 sw_3_out[4] <= ram_in_reg[3][4].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_cxb_data_fft_131:ram_cxb_wr_data
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_cxb_data_fft_131:ram_cxb_wr_data
 clk => ram_in_reg[7][0].CLK
 clk => ram_in_reg[7][1].CLK
 clk => ram_in_reg[7][2].CLK
@@ -22718,7 +22718,7 @@ sw_3_out[30] <= ram_in_reg[3][14].DB_MAX_OUTPUT_PORT_TYPE
 sw_3_out[31] <= ram_in_reg[3][15].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_cxb_data_r_fft_131:ram_cxb_bfp_data
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_cxb_data_r_fft_131:ram_cxb_bfp_data
 clk => ram_in_reg[7][0].CLK
 clk => ram_in_reg[7][1].CLK
 clk => ram_in_reg[7][2].CLK
@@ -23873,7 +23873,7 @@ sw_3_out[30] <= ram_in_reg[3][14].DB_MAX_OUTPUT_PORT_TYPE
 sw_3_out[31] <= ram_in_reg[3][15].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft
 global_clock_enable => asj_fft_pround_fft_131:gen_full_rnd:gen_rounding_blk:0:u0.global_clock_enable
 global_clock_enable => asj_fft_pround_fft_131:gen_full_rnd:gen_rounding_blk:0:u1.global_clock_enable
 global_clock_enable => asj_fft_pround_fft_131:gen_full_rnd:gen_rounding_blk:1:u0.global_clock_enable
@@ -25743,7 +25743,7 @@ alt_slb_o[1] <= asj_fft_bfp_o_fft_131:gen_disc:bfp_detect.lut_out[1]
 alt_slb_o[2] <= asj_fft_bfp_o_fft_131:gen_disc:bfp_detect.lut_out[2]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:0:u0
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:0:u0
 global_clock_enable => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLKEN
 clk => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLOCK
 clken => ~NO_FANOUT~
@@ -25785,7 +25785,7 @@ yout[14] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[16]
 yout[15] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[17]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:0:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:0:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
 dataa[0] => add_sub_onj:auto_generated.dataa[0]
 dataa[1] => add_sub_onj:auto_generated.dataa[1]
 dataa[2] => add_sub_onj:auto_generated.dataa[2]
@@ -25852,7 +25852,7 @@ cout <= <GND>
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:0:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_onj:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:0:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_onj:auto_generated
 add_sub => ~NO_FANOUT~
 cin => op_1.IN38
 cin => op_1.IN39
@@ -25953,7 +25953,7 @@ result[17] <= pipeline_dffe[17].DB_MAX_OUTPUT_PORT_TYPE
 result[18] <= pipeline_dffe[18].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:0:u1
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:0:u1
 global_clock_enable => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLKEN
 clk => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLOCK
 clken => ~NO_FANOUT~
@@ -25995,7 +25995,7 @@ yout[14] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[16]
 yout[15] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[17]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:0:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:0:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
 dataa[0] => add_sub_onj:auto_generated.dataa[0]
 dataa[1] => add_sub_onj:auto_generated.dataa[1]
 dataa[2] => add_sub_onj:auto_generated.dataa[2]
@@ -26062,7 +26062,7 @@ cout <= <GND>
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:0:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_onj:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:0:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_onj:auto_generated
 add_sub => ~NO_FANOUT~
 cin => op_1.IN38
 cin => op_1.IN39
@@ -26163,7 +26163,7 @@ result[17] <= pipeline_dffe[17].DB_MAX_OUTPUT_PORT_TYPE
 result[18] <= pipeline_dffe[18].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:1:u0
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:1:u0
 global_clock_enable => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLKEN
 clk => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLOCK
 clken => ~NO_FANOUT~
@@ -26205,7 +26205,7 @@ yout[14] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[16]
 yout[15] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[17]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:1:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:1:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
 dataa[0] => add_sub_onj:auto_generated.dataa[0]
 dataa[1] => add_sub_onj:auto_generated.dataa[1]
 dataa[2] => add_sub_onj:auto_generated.dataa[2]
@@ -26272,7 +26272,7 @@ cout <= <GND>
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:1:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_onj:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:1:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_onj:auto_generated
 add_sub => ~NO_FANOUT~
 cin => op_1.IN38
 cin => op_1.IN39
@@ -26373,7 +26373,7 @@ result[17] <= pipeline_dffe[17].DB_MAX_OUTPUT_PORT_TYPE
 result[18] <= pipeline_dffe[18].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:1:u1
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:1:u1
 global_clock_enable => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLKEN
 clk => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLOCK
 clken => ~NO_FANOUT~
@@ -26415,7 +26415,7 @@ yout[14] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[16]
 yout[15] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[17]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:1:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:1:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
 dataa[0] => add_sub_onj:auto_generated.dataa[0]
 dataa[1] => add_sub_onj:auto_generated.dataa[1]
 dataa[2] => add_sub_onj:auto_generated.dataa[2]
@@ -26482,7 +26482,7 @@ cout <= <GND>
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:1:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_onj:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:1:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_onj:auto_generated
 add_sub => ~NO_FANOUT~
 cin => op_1.IN38
 cin => op_1.IN39
@@ -26583,7 +26583,7 @@ result[17] <= pipeline_dffe[17].DB_MAX_OUTPUT_PORT_TYPE
 result[18] <= pipeline_dffe[18].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:2:u0
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:2:u0
 global_clock_enable => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLKEN
 clk => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLOCK
 clken => ~NO_FANOUT~
@@ -26625,7 +26625,7 @@ yout[14] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[16]
 yout[15] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[17]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:2:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:2:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
 dataa[0] => add_sub_onj:auto_generated.dataa[0]
 dataa[1] => add_sub_onj:auto_generated.dataa[1]
 dataa[2] => add_sub_onj:auto_generated.dataa[2]
@@ -26692,7 +26692,7 @@ cout <= <GND>
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:2:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_onj:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:2:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_onj:auto_generated
 add_sub => ~NO_FANOUT~
 cin => op_1.IN38
 cin => op_1.IN39
@@ -26793,7 +26793,7 @@ result[17] <= pipeline_dffe[17].DB_MAX_OUTPUT_PORT_TYPE
 result[18] <= pipeline_dffe[18].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:2:u1
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:2:u1
 global_clock_enable => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLKEN
 clk => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLOCK
 clken => ~NO_FANOUT~
@@ -26835,7 +26835,7 @@ yout[14] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[16]
 yout[15] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[17]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:2:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:2:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
 dataa[0] => add_sub_onj:auto_generated.dataa[0]
 dataa[1] => add_sub_onj:auto_generated.dataa[1]
 dataa[2] => add_sub_onj:auto_generated.dataa[2]
@@ -26902,7 +26902,7 @@ cout <= <GND>
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:2:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_onj:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:2:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_onj:auto_generated
 add_sub => ~NO_FANOUT~
 cin => op_1.IN38
 cin => op_1.IN39
@@ -27003,7 +27003,7 @@ result[17] <= pipeline_dffe[17].DB_MAX_OUTPUT_PORT_TYPE
 result[18] <= pipeline_dffe[18].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:3:u0
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:3:u0
 global_clock_enable => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLKEN
 clk => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLOCK
 clken => ~NO_FANOUT~
@@ -27045,7 +27045,7 @@ yout[14] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[16]
 yout[15] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[17]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:3:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:3:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
 dataa[0] => add_sub_onj:auto_generated.dataa[0]
 dataa[1] => add_sub_onj:auto_generated.dataa[1]
 dataa[2] => add_sub_onj:auto_generated.dataa[2]
@@ -27112,7 +27112,7 @@ cout <= <GND>
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:3:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_onj:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:3:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_onj:auto_generated
 add_sub => ~NO_FANOUT~
 cin => op_1.IN38
 cin => op_1.IN39
@@ -27213,7 +27213,7 @@ result[17] <= pipeline_dffe[17].DB_MAX_OUTPUT_PORT_TYPE
 result[18] <= pipeline_dffe[18].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:3:u1
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:3:u1
 global_clock_enable => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLKEN
 clk => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLOCK
 clken => ~NO_FANOUT~
@@ -27255,7 +27255,7 @@ yout[14] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[16]
 yout[15] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[17]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:3:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:3:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
 dataa[0] => add_sub_onj:auto_generated.dataa[0]
 dataa[1] => add_sub_onj:auto_generated.dataa[1]
 dataa[2] => add_sub_onj:auto_generated.dataa[2]
@@ -27322,7 +27322,7 @@ cout <= <GND>
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:3:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_onj:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_pround_fft_131:\gen_full_rnd:gen_rounding_blk:3:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_onj:auto_generated
 add_sub => ~NO_FANOUT~
 cin => op_1.IN38
 cin => op_1.IN39
@@ -27423,14 +27423,14 @@ result[17] <= pipeline_dffe[17].DB_MAX_OUTPUT_PORT_TYPE
 result[18] <= pipeline_dffe[18].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_tdl_bit_fft_131:\gen_disc:delay_next_pass
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_tdl_bit_fft_131:\gen_disc:delay_next_pass
 clk => tdl_arr[0].CLK
 global_clock_enable => tdl_arr[0].ENA
 data_in => tdl_arr[0].DATAIN
 data_out <= tdl_arr[0].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_bfp_o_fft_131:\gen_disc:bfp_detect
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_bfp_o_fft_131:\gen_disc:bfp_detect
 global_clock_enable => asj_fft_tdl_bit_rst_fft_131:gen_blk_float:gen_streaming:gen_disc:delay_next_blk.global_clock_enable
 global_clock_enable => sdetd.DISABLE.OUTPUTSELECT
 global_clock_enable => sdetd.SLBI.OUTPUTSELECT
@@ -27721,7 +27721,7 @@ lut_out[1] <= lut_out_tmp[1].DB_MAX_OUTPUT_PORT_TYPE
 lut_out[2] <= lut_out_tmp[2].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_bfp_o_fft_131:\gen_disc:bfp_detect|asj_fft_tdl_bit_rst_fft_131:\gen_blk_float:gen_streaming:gen_disc:delay_next_blk
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_bfp_o_fft_131:\gen_disc:bfp_detect|asj_fft_tdl_bit_rst_fft_131:\gen_blk_float:gen_streaming:gen_disc:delay_next_blk
 clk => tdl_arr[0].CLK
 global_clock_enable => tdl_arr[0].ENA
 reset => tdl_arr.OUTPUTSELECT
@@ -27729,7 +27729,7 @@ data_in => tdl_arr.DATAA
 data_out <= tdl_arr[0].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_bfp_o_fft_131:\gen_disc:bfp_detect|asj_fft_tdl_bit_fft_131:\gen_blk_float:gen_streaming:gen_disc:delay_next_pass3
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_bfp_o_fft_131:\gen_disc:bfp_detect|asj_fft_tdl_bit_fft_131:\gen_blk_float:gen_streaming:gen_disc:delay_next_pass3
 clk => tdl_arr[0].CLK
 clk => tdl_arr[1].CLK
 global_clock_enable => tdl_arr[0].ENA
@@ -27738,7 +27738,7 @@ data_in => tdl_arr[0].DATAIN
 data_out <= tdl_arr[1].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_bfp_o_fft_131:\gen_disc:bfp_detect|asj_fft_tdl_bit_rst_fft_131:\gen_blk_float:gen_streaming:gen_disc:gen_consts_256:delay_next_pass
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_bfp_o_fft_131:\gen_disc:bfp_detect|asj_fft_tdl_bit_rst_fft_131:\gen_blk_float:gen_streaming:gen_disc:gen_consts_256:delay_next_pass
 clk => tdl_arr[0].CLK
 clk => tdl_arr[1].CLK
 clk => tdl_arr[2].CLK
@@ -27764,7 +27764,7 @@ data_in => tdl_arr.DATAA
 data_out <= tdl_arr[6].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_bfp_i_fft_131:\gen_disc:bfp_scale
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_bfp_i_fft_131:\gen_disc:bfp_scale
 global_clock_enable => i_array_out[3][0].ENA
 global_clock_enable => i_array_out[3][1].ENA
 global_clock_enable => i_array_out[3][2].ENA
@@ -29095,7 +29095,7 @@ imag_bfp_3_out[14] <= i_array_out[3][14].DB_MAX_OUTPUT_PORT_TYPE
 imag_bfp_3_out[15] <= i_array_out[3][15].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1
 clk => asj_fft_mult_add_fft_131:gen_ma:gen_ma_full:ms.clock0
 clk => result_i_tmp[0].CLK
 clk => result_i_tmp[1].CLK
@@ -29335,7 +29335,7 @@ imag_out[14] <= asj_fft_tdl_fft_131:gen_ma:gen_ma_full:imag_delay.data_out[14]
 imag_out[15] <= asj_fft_tdl_fft_131:gen_ma:gen_ma_full:imag_delay.data_out[15]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms
 global_clock_enable => altmult_add:ALTMULT_ADD_component.ena0
 clock0 => altmult_add:ALTMULT_ADD_component.clock0
 dataa_0[0] => altmult_add:ALTMULT_ADD_component.dataa[0]
@@ -29413,7 +29413,7 @@ result[23] <= altmult_add:ALTMULT_ADD_component.result[23]
 result[24] <= altmult_add:ALTMULT_ADD_component.result[24]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component
 accum_sload => ~NO_FANOUT~
 aclr0 => ~NO_FANOUT~
 aclr1 => ~NO_FANOUT~
@@ -29635,7 +29635,7 @@ datac[42] => ~NO_FANOUT~
 datac[43] => ~NO_FANOUT~
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component|mult_add_khq2:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component|mult_add_khq2:auto_generated
 clock0 => ded_mult_8591:ded_mult1.clock[0]
 clock0 => ded_mult_8591:ded_mult2.clock[0]
 clock0 => dffe7a[25].CLK
@@ -29767,7 +29767,7 @@ result[23] <= dffe7a[23].DB_MAX_OUTPUT_PORT_TYPE
 result[24] <= dffe7a[24].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component|mult_add_khq2:auto_generated|ded_mult_8591:ded_mult1
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component|mult_add_khq2:auto_generated|ded_mult_8591:ded_mult1
 aclr[0] => mac_mult8.ACLR
 aclr[0] => mac_out9.ACLR
 aclr[1] => ~NO_FANOUT~
@@ -29833,7 +29833,7 @@ result[22] <= dffpipe_a3c:pre_result.q[22]
 result[23] <= dffpipe_a3c:pre_result.q[23]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component|mult_add_khq2:auto_generated|ded_mult_8591:ded_mult1|dffpipe_a3c:pre_result
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component|mult_add_khq2:auto_generated|ded_mult_8591:ded_mult1|dffpipe_a3c:pre_result
 d[0] => q[0].DATAIN
 d[1] => q[1].DATAIN
 d[2] => q[2].DATAIN
@@ -29884,7 +29884,7 @@ q[22] <= d[22].DB_MAX_OUTPUT_PORT_TYPE
 q[23] <= d[23].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component|mult_add_khq2:auto_generated|ded_mult_8591:ded_mult2
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component|mult_add_khq2:auto_generated|ded_mult_8591:ded_mult2
 aclr[0] => mac_mult8.ACLR
 aclr[0] => mac_out9.ACLR
 aclr[1] => ~NO_FANOUT~
@@ -29950,7 +29950,7 @@ result[22] <= dffpipe_a3c:pre_result.q[22]
 result[23] <= dffpipe_a3c:pre_result.q[23]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component|mult_add_khq2:auto_generated|ded_mult_8591:ded_mult2|dffpipe_a3c:pre_result
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component|mult_add_khq2:auto_generated|ded_mult_8591:ded_mult2|dffpipe_a3c:pre_result
 d[0] => q[0].DATAIN
 d[1] => q[1].DATAIN
 d[2] => q[2].DATAIN
@@ -30001,7 +30001,7 @@ q[22] <= d[22].DB_MAX_OUTPUT_PORT_TYPE
 q[23] <= d[23].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma
 global_clock_enable => altmult_add:ALTMULT_ADD_component.ena0
 clock0 => altmult_add:ALTMULT_ADD_component.clock0
 dataa_0[0] => altmult_add:ALTMULT_ADD_component.dataa[0]
@@ -30079,7 +30079,7 @@ result[23] <= altmult_add:ALTMULT_ADD_component.result[23]
 result[24] <= altmult_add:ALTMULT_ADD_component.result[24]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component
 accum_sload => ~NO_FANOUT~
 aclr0 => ~NO_FANOUT~
 aclr1 => ~NO_FANOUT~
@@ -30301,7 +30301,7 @@ datac[42] => ~NO_FANOUT~
 datac[43] => ~NO_FANOUT~
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component|mult_add_jgq2:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component|mult_add_jgq2:auto_generated
 clock0 => ded_mult_8591:ded_mult1.clock[0]
 clock0 => ded_mult_8591:ded_mult2.clock[0]
 clock0 => dffe5a[24].CLK
@@ -30431,7 +30431,7 @@ result[23] <= dffe5a[23].DB_MAX_OUTPUT_PORT_TYPE
 result[24] <= dffe5a[24].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component|mult_add_jgq2:auto_generated|ded_mult_8591:ded_mult1
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component|mult_add_jgq2:auto_generated|ded_mult_8591:ded_mult1
 aclr[0] => mac_mult8.ACLR
 aclr[0] => mac_out9.ACLR
 aclr[1] => ~NO_FANOUT~
@@ -30497,7 +30497,7 @@ result[22] <= dffpipe_a3c:pre_result.q[22]
 result[23] <= dffpipe_a3c:pre_result.q[23]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component|mult_add_jgq2:auto_generated|ded_mult_8591:ded_mult1|dffpipe_a3c:pre_result
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component|mult_add_jgq2:auto_generated|ded_mult_8591:ded_mult1|dffpipe_a3c:pre_result
 d[0] => q[0].DATAIN
 d[1] => q[1].DATAIN
 d[2] => q[2].DATAIN
@@ -30548,7 +30548,7 @@ q[22] <= d[22].DB_MAX_OUTPUT_PORT_TYPE
 q[23] <= d[23].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component|mult_add_jgq2:auto_generated|ded_mult_8591:ded_mult2
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component|mult_add_jgq2:auto_generated|ded_mult_8591:ded_mult2
 aclr[0] => mac_mult8.ACLR
 aclr[0] => mac_out9.ACLR
 aclr[1] => ~NO_FANOUT~
@@ -30614,7 +30614,7 @@ result[22] <= dffpipe_a3c:pre_result.q[22]
 result[23] <= dffpipe_a3c:pre_result.q[23]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component|mult_add_jgq2:auto_generated|ded_mult_8591:ded_mult2|dffpipe_a3c:pre_result
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component|mult_add_jgq2:auto_generated|ded_mult_8591:ded_mult2|dffpipe_a3c:pre_result
 d[0] => q[0].DATAIN
 d[1] => q[1].DATAIN
 d[2] => q[2].DATAIN
@@ -30665,7 +30665,7 @@ q[22] <= d[22].DB_MAX_OUTPUT_PORT_TYPE
 q[23] <= d[23].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u0
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u0
 global_clock_enable => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLKEN
 clk => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLOCK
 clken => ~NO_FANOUT~
@@ -30713,7 +30713,7 @@ yout[14] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[22]
 yout[15] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[23]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
 dataa[0] => add_sub_lnj:auto_generated.dataa[0]
 dataa[1] => add_sub_lnj:auto_generated.dataa[1]
 dataa[2] => add_sub_lnj:auto_generated.dataa[2]
@@ -30798,7 +30798,7 @@ cout <= <GND>
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_lnj:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_lnj:auto_generated
 add_sub => ~NO_FANOUT~
 cin => op_1.IN50
 cin => op_1.IN51
@@ -30929,7 +30929,7 @@ result[23] <= pipeline_dffe[23].DB_MAX_OUTPUT_PORT_TYPE
 result[24] <= pipeline_dffe[24].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u1
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u1
 global_clock_enable => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLKEN
 clk => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLOCK
 clken => ~NO_FANOUT~
@@ -30977,7 +30977,7 @@ yout[14] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[22]
 yout[15] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[23]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
 dataa[0] => add_sub_lnj:auto_generated.dataa[0]
 dataa[1] => add_sub_lnj:auto_generated.dataa[1]
 dataa[2] => add_sub_lnj:auto_generated.dataa[2]
@@ -31062,7 +31062,7 @@ cout <= <GND>
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_lnj:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_lnj:auto_generated
 add_sub => ~NO_FANOUT~
 cin => op_1.IN50
 cin => op_1.IN51
@@ -31193,7 +31193,7 @@ result[23] <= pipeline_dffe[23].DB_MAX_OUTPUT_PORT_TYPE
 result[24] <= pipeline_dffe[24].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_tdl_fft_131:\gen_ma:gen_ma_full:real_delay
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_tdl_fft_131:\gen_ma:gen_ma_full:real_delay
 clk => tdl_arr[1][0].CLK
 clk => tdl_arr[1][1].CLK
 clk => tdl_arr[1][2].CLK
@@ -31292,7 +31292,7 @@ data_out[14] <= tdl_arr[1][14].DB_MAX_OUTPUT_PORT_TYPE
 data_out[15] <= tdl_arr[1][15].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_tdl_fft_131:\gen_ma:gen_ma_full:imag_delay
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm1|asj_fft_tdl_fft_131:\gen_ma:gen_ma_full:imag_delay
 clk => tdl_arr[1][0].CLK
 clk => tdl_arr[1][1].CLK
 clk => tdl_arr[1][2].CLK
@@ -31391,7 +31391,7 @@ data_out[14] <= tdl_arr[1][14].DB_MAX_OUTPUT_PORT_TYPE
 data_out[15] <= tdl_arr[1][15].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2
 clk => asj_fft_mult_add_fft_131:gen_ma:gen_ma_full:ms.clock0
 clk => result_i_tmp[0].CLK
 clk => result_i_tmp[1].CLK
@@ -31631,7 +31631,7 @@ imag_out[14] <= asj_fft_tdl_fft_131:gen_ma:gen_ma_full:imag_delay.data_out[14]
 imag_out[15] <= asj_fft_tdl_fft_131:gen_ma:gen_ma_full:imag_delay.data_out[15]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms
 global_clock_enable => altmult_add:ALTMULT_ADD_component.ena0
 clock0 => altmult_add:ALTMULT_ADD_component.clock0
 dataa_0[0] => altmult_add:ALTMULT_ADD_component.dataa[0]
@@ -31709,7 +31709,7 @@ result[23] <= altmult_add:ALTMULT_ADD_component.result[23]
 result[24] <= altmult_add:ALTMULT_ADD_component.result[24]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component
 accum_sload => ~NO_FANOUT~
 aclr0 => ~NO_FANOUT~
 aclr1 => ~NO_FANOUT~
@@ -31931,7 +31931,7 @@ datac[42] => ~NO_FANOUT~
 datac[43] => ~NO_FANOUT~
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component|mult_add_khq2:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component|mult_add_khq2:auto_generated
 clock0 => ded_mult_8591:ded_mult1.clock[0]
 clock0 => ded_mult_8591:ded_mult2.clock[0]
 clock0 => dffe7a[25].CLK
@@ -32063,7 +32063,7 @@ result[23] <= dffe7a[23].DB_MAX_OUTPUT_PORT_TYPE
 result[24] <= dffe7a[24].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component|mult_add_khq2:auto_generated|ded_mult_8591:ded_mult1
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component|mult_add_khq2:auto_generated|ded_mult_8591:ded_mult1
 aclr[0] => mac_mult8.ACLR
 aclr[0] => mac_out9.ACLR
 aclr[1] => ~NO_FANOUT~
@@ -32129,7 +32129,7 @@ result[22] <= dffpipe_a3c:pre_result.q[22]
 result[23] <= dffpipe_a3c:pre_result.q[23]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component|mult_add_khq2:auto_generated|ded_mult_8591:ded_mult1|dffpipe_a3c:pre_result
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component|mult_add_khq2:auto_generated|ded_mult_8591:ded_mult1|dffpipe_a3c:pre_result
 d[0] => q[0].DATAIN
 d[1] => q[1].DATAIN
 d[2] => q[2].DATAIN
@@ -32180,7 +32180,7 @@ q[22] <= d[22].DB_MAX_OUTPUT_PORT_TYPE
 q[23] <= d[23].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component|mult_add_khq2:auto_generated|ded_mult_8591:ded_mult2
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component|mult_add_khq2:auto_generated|ded_mult_8591:ded_mult2
 aclr[0] => mac_mult8.ACLR
 aclr[0] => mac_out9.ACLR
 aclr[1] => ~NO_FANOUT~
@@ -32246,7 +32246,7 @@ result[22] <= dffpipe_a3c:pre_result.q[22]
 result[23] <= dffpipe_a3c:pre_result.q[23]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component|mult_add_khq2:auto_generated|ded_mult_8591:ded_mult2|dffpipe_a3c:pre_result
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component|mult_add_khq2:auto_generated|ded_mult_8591:ded_mult2|dffpipe_a3c:pre_result
 d[0] => q[0].DATAIN
 d[1] => q[1].DATAIN
 d[2] => q[2].DATAIN
@@ -32297,7 +32297,7 @@ q[22] <= d[22].DB_MAX_OUTPUT_PORT_TYPE
 q[23] <= d[23].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma
 global_clock_enable => altmult_add:ALTMULT_ADD_component.ena0
 clock0 => altmult_add:ALTMULT_ADD_component.clock0
 dataa_0[0] => altmult_add:ALTMULT_ADD_component.dataa[0]
@@ -32375,7 +32375,7 @@ result[23] <= altmult_add:ALTMULT_ADD_component.result[23]
 result[24] <= altmult_add:ALTMULT_ADD_component.result[24]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component
 accum_sload => ~NO_FANOUT~
 aclr0 => ~NO_FANOUT~
 aclr1 => ~NO_FANOUT~
@@ -32597,7 +32597,7 @@ datac[42] => ~NO_FANOUT~
 datac[43] => ~NO_FANOUT~
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component|mult_add_jgq2:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component|mult_add_jgq2:auto_generated
 clock0 => ded_mult_8591:ded_mult1.clock[0]
 clock0 => ded_mult_8591:ded_mult2.clock[0]
 clock0 => dffe5a[24].CLK
@@ -32727,7 +32727,7 @@ result[23] <= dffe5a[23].DB_MAX_OUTPUT_PORT_TYPE
 result[24] <= dffe5a[24].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component|mult_add_jgq2:auto_generated|ded_mult_8591:ded_mult1
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component|mult_add_jgq2:auto_generated|ded_mult_8591:ded_mult1
 aclr[0] => mac_mult8.ACLR
 aclr[0] => mac_out9.ACLR
 aclr[1] => ~NO_FANOUT~
@@ -32793,7 +32793,7 @@ result[22] <= dffpipe_a3c:pre_result.q[22]
 result[23] <= dffpipe_a3c:pre_result.q[23]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component|mult_add_jgq2:auto_generated|ded_mult_8591:ded_mult1|dffpipe_a3c:pre_result
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component|mult_add_jgq2:auto_generated|ded_mult_8591:ded_mult1|dffpipe_a3c:pre_result
 d[0] => q[0].DATAIN
 d[1] => q[1].DATAIN
 d[2] => q[2].DATAIN
@@ -32844,7 +32844,7 @@ q[22] <= d[22].DB_MAX_OUTPUT_PORT_TYPE
 q[23] <= d[23].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component|mult_add_jgq2:auto_generated|ded_mult_8591:ded_mult2
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component|mult_add_jgq2:auto_generated|ded_mult_8591:ded_mult2
 aclr[0] => mac_mult8.ACLR
 aclr[0] => mac_out9.ACLR
 aclr[1] => ~NO_FANOUT~
@@ -32910,7 +32910,7 @@ result[22] <= dffpipe_a3c:pre_result.q[22]
 result[23] <= dffpipe_a3c:pre_result.q[23]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component|mult_add_jgq2:auto_generated|ded_mult_8591:ded_mult2|dffpipe_a3c:pre_result
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component|mult_add_jgq2:auto_generated|ded_mult_8591:ded_mult2|dffpipe_a3c:pre_result
 d[0] => q[0].DATAIN
 d[1] => q[1].DATAIN
 d[2] => q[2].DATAIN
@@ -32961,7 +32961,7 @@ q[22] <= d[22].DB_MAX_OUTPUT_PORT_TYPE
 q[23] <= d[23].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u0
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u0
 global_clock_enable => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLKEN
 clk => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLOCK
 clken => ~NO_FANOUT~
@@ -33009,7 +33009,7 @@ yout[14] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[22]
 yout[15] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[23]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
 dataa[0] => add_sub_lnj:auto_generated.dataa[0]
 dataa[1] => add_sub_lnj:auto_generated.dataa[1]
 dataa[2] => add_sub_lnj:auto_generated.dataa[2]
@@ -33094,7 +33094,7 @@ cout <= <GND>
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_lnj:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_lnj:auto_generated
 add_sub => ~NO_FANOUT~
 cin => op_1.IN50
 cin => op_1.IN51
@@ -33225,7 +33225,7 @@ result[23] <= pipeline_dffe[23].DB_MAX_OUTPUT_PORT_TYPE
 result[24] <= pipeline_dffe[24].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u1
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u1
 global_clock_enable => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLKEN
 clk => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLOCK
 clken => ~NO_FANOUT~
@@ -33273,7 +33273,7 @@ yout[14] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[22]
 yout[15] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[23]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
 dataa[0] => add_sub_lnj:auto_generated.dataa[0]
 dataa[1] => add_sub_lnj:auto_generated.dataa[1]
 dataa[2] => add_sub_lnj:auto_generated.dataa[2]
@@ -33358,7 +33358,7 @@ cout <= <GND>
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_lnj:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_lnj:auto_generated
 add_sub => ~NO_FANOUT~
 cin => op_1.IN50
 cin => op_1.IN51
@@ -33489,7 +33489,7 @@ result[23] <= pipeline_dffe[23].DB_MAX_OUTPUT_PORT_TYPE
 result[24] <= pipeline_dffe[24].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_tdl_fft_131:\gen_ma:gen_ma_full:real_delay
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_tdl_fft_131:\gen_ma:gen_ma_full:real_delay
 clk => tdl_arr[1][0].CLK
 clk => tdl_arr[1][1].CLK
 clk => tdl_arr[1][2].CLK
@@ -33588,7 +33588,7 @@ data_out[14] <= tdl_arr[1][14].DB_MAX_OUTPUT_PORT_TYPE
 data_out[15] <= tdl_arr[1][15].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_tdl_fft_131:\gen_ma:gen_ma_full:imag_delay
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm2|asj_fft_tdl_fft_131:\gen_ma:gen_ma_full:imag_delay
 clk => tdl_arr[1][0].CLK
 clk => tdl_arr[1][1].CLK
 clk => tdl_arr[1][2].CLK
@@ -33687,7 +33687,7 @@ data_out[14] <= tdl_arr[1][14].DB_MAX_OUTPUT_PORT_TYPE
 data_out[15] <= tdl_arr[1][15].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3
 clk => asj_fft_mult_add_fft_131:gen_ma:gen_ma_full:ms.clock0
 clk => result_i_tmp[0].CLK
 clk => result_i_tmp[1].CLK
@@ -33927,7 +33927,7 @@ imag_out[14] <= asj_fft_tdl_fft_131:gen_ma:gen_ma_full:imag_delay.data_out[14]
 imag_out[15] <= asj_fft_tdl_fft_131:gen_ma:gen_ma_full:imag_delay.data_out[15]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms
 global_clock_enable => altmult_add:ALTMULT_ADD_component.ena0
 clock0 => altmult_add:ALTMULT_ADD_component.clock0
 dataa_0[0] => altmult_add:ALTMULT_ADD_component.dataa[0]
@@ -34005,7 +34005,7 @@ result[23] <= altmult_add:ALTMULT_ADD_component.result[23]
 result[24] <= altmult_add:ALTMULT_ADD_component.result[24]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component
 accum_sload => ~NO_FANOUT~
 aclr0 => ~NO_FANOUT~
 aclr1 => ~NO_FANOUT~
@@ -34227,7 +34227,7 @@ datac[42] => ~NO_FANOUT~
 datac[43] => ~NO_FANOUT~
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component|mult_add_khq2:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component|mult_add_khq2:auto_generated
 clock0 => ded_mult_8591:ded_mult1.clock[0]
 clock0 => ded_mult_8591:ded_mult2.clock[0]
 clock0 => dffe7a[25].CLK
@@ -34359,7 +34359,7 @@ result[23] <= dffe7a[23].DB_MAX_OUTPUT_PORT_TYPE
 result[24] <= dffe7a[24].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component|mult_add_khq2:auto_generated|ded_mult_8591:ded_mult1
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component|mult_add_khq2:auto_generated|ded_mult_8591:ded_mult1
 aclr[0] => mac_mult8.ACLR
 aclr[0] => mac_out9.ACLR
 aclr[1] => ~NO_FANOUT~
@@ -34425,7 +34425,7 @@ result[22] <= dffpipe_a3c:pre_result.q[22]
 result[23] <= dffpipe_a3c:pre_result.q[23]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component|mult_add_khq2:auto_generated|ded_mult_8591:ded_mult1|dffpipe_a3c:pre_result
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component|mult_add_khq2:auto_generated|ded_mult_8591:ded_mult1|dffpipe_a3c:pre_result
 d[0] => q[0].DATAIN
 d[1] => q[1].DATAIN
 d[2] => q[2].DATAIN
@@ -34476,7 +34476,7 @@ q[22] <= d[22].DB_MAX_OUTPUT_PORT_TYPE
 q[23] <= d[23].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component|mult_add_khq2:auto_generated|ded_mult_8591:ded_mult2
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component|mult_add_khq2:auto_generated|ded_mult_8591:ded_mult2
 aclr[0] => mac_mult8.ACLR
 aclr[0] => mac_out9.ACLR
 aclr[1] => ~NO_FANOUT~
@@ -34542,7 +34542,7 @@ result[22] <= dffpipe_a3c:pre_result.q[22]
 result[23] <= dffpipe_a3c:pre_result.q[23]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component|mult_add_khq2:auto_generated|ded_mult_8591:ded_mult2|dffpipe_a3c:pre_result
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ms|altmult_add:ALTMULT_ADD_component|mult_add_khq2:auto_generated|ded_mult_8591:ded_mult2|dffpipe_a3c:pre_result
 d[0] => q[0].DATAIN
 d[1] => q[1].DATAIN
 d[2] => q[2].DATAIN
@@ -34593,7 +34593,7 @@ q[22] <= d[22].DB_MAX_OUTPUT_PORT_TYPE
 q[23] <= d[23].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma
 global_clock_enable => altmult_add:ALTMULT_ADD_component.ena0
 clock0 => altmult_add:ALTMULT_ADD_component.clock0
 dataa_0[0] => altmult_add:ALTMULT_ADD_component.dataa[0]
@@ -34671,7 +34671,7 @@ result[23] <= altmult_add:ALTMULT_ADD_component.result[23]
 result[24] <= altmult_add:ALTMULT_ADD_component.result[24]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component
 accum_sload => ~NO_FANOUT~
 aclr0 => ~NO_FANOUT~
 aclr1 => ~NO_FANOUT~
@@ -34893,7 +34893,7 @@ datac[42] => ~NO_FANOUT~
 datac[43] => ~NO_FANOUT~
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component|mult_add_jgq2:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component|mult_add_jgq2:auto_generated
 clock0 => ded_mult_8591:ded_mult1.clock[0]
 clock0 => ded_mult_8591:ded_mult2.clock[0]
 clock0 => dffe5a[24].CLK
@@ -35023,7 +35023,7 @@ result[23] <= dffe5a[23].DB_MAX_OUTPUT_PORT_TYPE
 result[24] <= dffe5a[24].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component|mult_add_jgq2:auto_generated|ded_mult_8591:ded_mult1
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component|mult_add_jgq2:auto_generated|ded_mult_8591:ded_mult1
 aclr[0] => mac_mult8.ACLR
 aclr[0] => mac_out9.ACLR
 aclr[1] => ~NO_FANOUT~
@@ -35089,7 +35089,7 @@ result[22] <= dffpipe_a3c:pre_result.q[22]
 result[23] <= dffpipe_a3c:pre_result.q[23]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component|mult_add_jgq2:auto_generated|ded_mult_8591:ded_mult1|dffpipe_a3c:pre_result
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component|mult_add_jgq2:auto_generated|ded_mult_8591:ded_mult1|dffpipe_a3c:pre_result
 d[0] => q[0].DATAIN
 d[1] => q[1].DATAIN
 d[2] => q[2].DATAIN
@@ -35140,7 +35140,7 @@ q[22] <= d[22].DB_MAX_OUTPUT_PORT_TYPE
 q[23] <= d[23].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component|mult_add_jgq2:auto_generated|ded_mult_8591:ded_mult2
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component|mult_add_jgq2:auto_generated|ded_mult_8591:ded_mult2
 aclr[0] => mac_mult8.ACLR
 aclr[0] => mac_out9.ACLR
 aclr[1] => ~NO_FANOUT~
@@ -35206,7 +35206,7 @@ result[22] <= dffpipe_a3c:pre_result.q[22]
 result[23] <= dffpipe_a3c:pre_result.q[23]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component|mult_add_jgq2:auto_generated|ded_mult_8591:ded_mult2|dffpipe_a3c:pre_result
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_mult_add_fft_131:\gen_ma:gen_ma_full:ma|altmult_add:ALTMULT_ADD_component|mult_add_jgq2:auto_generated|ded_mult_8591:ded_mult2|dffpipe_a3c:pre_result
 d[0] => q[0].DATAIN
 d[1] => q[1].DATAIN
 d[2] => q[2].DATAIN
@@ -35257,7 +35257,7 @@ q[22] <= d[22].DB_MAX_OUTPUT_PORT_TYPE
 q[23] <= d[23].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u0
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u0
 global_clock_enable => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLKEN
 clk => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLOCK
 clken => ~NO_FANOUT~
@@ -35305,7 +35305,7 @@ yout[14] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[22]
 yout[15] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[23]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
 dataa[0] => add_sub_lnj:auto_generated.dataa[0]
 dataa[1] => add_sub_lnj:auto_generated.dataa[1]
 dataa[2] => add_sub_lnj:auto_generated.dataa[2]
@@ -35390,7 +35390,7 @@ cout <= <GND>
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_lnj:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_lnj:auto_generated
 add_sub => ~NO_FANOUT~
 cin => op_1.IN50
 cin => op_1.IN51
@@ -35521,7 +35521,7 @@ result[23] <= pipeline_dffe[23].DB_MAX_OUTPUT_PORT_TYPE
 result[24] <= pipeline_dffe[24].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u1
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u1
 global_clock_enable => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLKEN
 clk => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLOCK
 clken => ~NO_FANOUT~
@@ -35569,7 +35569,7 @@ yout[14] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[22]
 yout[15] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[23]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
 dataa[0] => add_sub_lnj:auto_generated.dataa[0]
 dataa[1] => add_sub_lnj:auto_generated.dataa[1]
 dataa[2] => add_sub_lnj:auto_generated.dataa[2]
@@ -35654,7 +35654,7 @@ cout <= <GND>
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_lnj:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_pround_fft_131:\gen_ma:gen_ma_full:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_lnj:auto_generated
 add_sub => ~NO_FANOUT~
 cin => op_1.IN50
 cin => op_1.IN51
@@ -35785,7 +35785,7 @@ result[23] <= pipeline_dffe[23].DB_MAX_OUTPUT_PORT_TYPE
 result[24] <= pipeline_dffe[24].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_tdl_fft_131:\gen_ma:gen_ma_full:real_delay
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_tdl_fft_131:\gen_ma:gen_ma_full:real_delay
 clk => tdl_arr[1][0].CLK
 clk => tdl_arr[1][1].CLK
 clk => tdl_arr[1][2].CLK
@@ -35884,7 +35884,7 @@ data_out[14] <= tdl_arr[1][14].DB_MAX_OUTPUT_PORT_TYPE
 data_out[15] <= tdl_arr[1][15].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_tdl_fft_131:\gen_ma:gen_ma_full:imag_delay
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_dft_bfp_fft_131:\gen_dft_1:bfpdft|asj_fft_cmult_std_fft_131:\gen_da0:gen_std:cm3|asj_fft_tdl_fft_131:\gen_ma:gen_ma_full:imag_delay
 clk => tdl_arr[1][0].CLK
 clk => tdl_arr[1][1].CLK
 clk => tdl_arr[1][2].CLK
@@ -35983,7 +35983,7 @@ data_out[14] <= tdl_arr[1][14].DB_MAX_OUTPUT_PORT_TYPE
 data_out[15] <= tdl_arr[1][15].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_tdl_bit_rst_fft_131:\gen_dft_1:delay_blk_done
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_tdl_bit_rst_fft_131:\gen_dft_1:delay_blk_done
 clk => tdl_arr[0].CLK
 clk => tdl_arr[1].CLK
 clk => tdl_arr[2].CLK
@@ -36024,7 +36024,7 @@ data_in => tdl_arr.DATAA
 data_out <= tdl_arr[11].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_bfp_ctrl_fft_131:\gen_dft_1:bfpc
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_bfp_ctrl_fft_131:\gen_dft_1:bfpc
 global_clock_enable => asj_fft_tdl_bit_rst_fft_131:gen_quad_str_ctrl:gen_se_bfp:gen_4bit_accum:gen_disc:delay_next_pass.global_clock_enable
 global_clock_enable => asj_fft_tdl_bit_rst_fft_131:gen_quad_str_ctrl:gen_se_bfp:gen_4bit_accum:gen_disc:delay_next_pass2.global_clock_enable
 global_clock_enable => slb_last[0].ENA
@@ -36107,7 +36107,7 @@ blk_exp_o[4] <= blk_exp[4].DB_MAX_OUTPUT_PORT_TYPE
 blk_exp_o[5] <= blk_exp[5].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_bfp_ctrl_fft_131:\gen_dft_1:bfpc|asj_fft_tdl_bit_rst_fft_131:\gen_quad_str_ctrl:gen_se_bfp:gen_4bit_accum:gen_disc:delay_next_pass
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_bfp_ctrl_fft_131:\gen_dft_1:bfpc|asj_fft_tdl_bit_rst_fft_131:\gen_quad_str_ctrl:gen_se_bfp:gen_4bit_accum:gen_disc:delay_next_pass
 clk => tdl_arr[0].CLK
 clk => tdl_arr[1].CLK
 clk => tdl_arr[2].CLK
@@ -36139,7 +36139,7 @@ data_in => tdl_arr.DATAA
 data_out <= tdl_arr[8].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_bfp_ctrl_fft_131:\gen_dft_1:bfpc|asj_fft_tdl_bit_rst_fft_131:\gen_quad_str_ctrl:gen_se_bfp:gen_4bit_accum:gen_disc:delay_next_pass2
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_bfp_ctrl_fft_131:\gen_dft_1:bfpc|asj_fft_tdl_bit_rst_fft_131:\gen_quad_str_ctrl:gen_se_bfp:gen_4bit_accum:gen_disc:delay_next_pass2
 clk => tdl_arr[0].CLK
 global_clock_enable => tdl_arr[0].ENA
 reset => tdl_arr.OUTPUTSELECT
@@ -36147,7 +36147,7 @@ data_in => tdl_arr.DATAA
 data_out <= tdl_arr[0].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_tdl_bit_rst_fft_131:\gen_dft_1:delay_blk_done2
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_tdl_bit_rst_fft_131:\gen_dft_1:delay_blk_done2
 clk => tdl_arr[0].CLK
 clk => tdl_arr[1].CLK
 clk => tdl_arr[2].CLK
@@ -36212,7 +36212,7 @@ data_in => tdl_arr.DATAA
 data_out <= tdl_arr[19].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_twadgen_fft_131:twid_factors
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_twadgen_fft_131:twid_factors
 clk => twad_temp[0].CLK
 clk => twad_temp[1].CLK
 clk => twad_temp[2].CLK
@@ -36319,7 +36319,7 @@ tw_addr[3] <= twad_tdl[6][3].DB_MAX_OUTPUT_PORT_TYPE
 tw_addr[4] <= twad_tdl[6][4].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom
 clk => twid_rom_fft_131:gen_M4K:sin_1n.clock
 clk => twid_rom_fft_131:gen_M4K:sin_2n.clock
 clk => twid_rom_fft_131:gen_M4K:sin_3n.clock
@@ -36412,7 +36412,7 @@ t3i[6] <= twid_rom_fft_131:gen_M4K:sin_3n.q[6]
 t3i[7] <= twid_rom_fft_131:gen_M4K:sin_3n.q[7]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:sin_1n
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:sin_1n
 global_clock_enable => altsyncram:gen_auto:altsyncram_component.clocken0
 address[0] => altsyncram:gen_auto:altsyncram_component.address_a[0]
 address[1] => altsyncram:gen_auto:altsyncram_component.address_a[1]
@@ -36430,7 +36430,7 @@ q[6] <= altsyncram:gen_auto:altsyncram_component.q_a[6]
 q[7] <= altsyncram:gen_auto:altsyncram_component.q_a[7]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:sin_1n|altsyncram:\gen_auto:altsyncram_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:sin_1n|altsyncram:\gen_auto:altsyncram_component
 wren_a => ~NO_FANOUT~
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -36476,7 +36476,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:sin_1n|altsyncram:\gen_auto:altsyncram_component|altsyncram_4191:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:sin_1n|altsyncram:\gen_auto:altsyncram_component|altsyncram_4191:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -36543,7 +36543,7 @@ q_a[6] <= ram_block1a6.PORTADATAOUT
 q_a[7] <= ram_block1a7.PORTADATAOUT
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:sin_2n
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:sin_2n
 global_clock_enable => altsyncram:gen_auto:altsyncram_component.clocken0
 address[0] => altsyncram:gen_auto:altsyncram_component.address_a[0]
 address[1] => altsyncram:gen_auto:altsyncram_component.address_a[1]
@@ -36561,7 +36561,7 @@ q[6] <= altsyncram:gen_auto:altsyncram_component.q_a[6]
 q[7] <= altsyncram:gen_auto:altsyncram_component.q_a[7]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:sin_2n|altsyncram:\gen_auto:altsyncram_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:sin_2n|altsyncram:\gen_auto:altsyncram_component
 wren_a => ~NO_FANOUT~
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -36607,7 +36607,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:sin_2n|altsyncram:\gen_auto:altsyncram_component|altsyncram_5191:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:sin_2n|altsyncram:\gen_auto:altsyncram_component|altsyncram_5191:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -36674,7 +36674,7 @@ q_a[6] <= ram_block1a6.PORTADATAOUT
 q_a[7] <= ram_block1a7.PORTADATAOUT
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:sin_3n
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:sin_3n
 global_clock_enable => altsyncram:gen_auto:altsyncram_component.clocken0
 address[0] => altsyncram:gen_auto:altsyncram_component.address_a[0]
 address[1] => altsyncram:gen_auto:altsyncram_component.address_a[1]
@@ -36692,7 +36692,7 @@ q[6] <= altsyncram:gen_auto:altsyncram_component.q_a[6]
 q[7] <= altsyncram:gen_auto:altsyncram_component.q_a[7]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:sin_3n|altsyncram:\gen_auto:altsyncram_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:sin_3n|altsyncram:\gen_auto:altsyncram_component
 wren_a => ~NO_FANOUT~
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -36738,7 +36738,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:sin_3n|altsyncram:\gen_auto:altsyncram_component|altsyncram_6191:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:sin_3n|altsyncram:\gen_auto:altsyncram_component|altsyncram_6191:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -36805,7 +36805,7 @@ q_a[6] <= ram_block1a6.PORTADATAOUT
 q_a[7] <= ram_block1a7.PORTADATAOUT
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:cos_1n
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:cos_1n
 global_clock_enable => altsyncram:gen_auto:altsyncram_component.clocken0
 address[0] => altsyncram:gen_auto:altsyncram_component.address_a[0]
 address[1] => altsyncram:gen_auto:altsyncram_component.address_a[1]
@@ -36823,7 +36823,7 @@ q[6] <= altsyncram:gen_auto:altsyncram_component.q_a[6]
 q[7] <= altsyncram:gen_auto:altsyncram_component.q_a[7]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:cos_1n|altsyncram:\gen_auto:altsyncram_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:cos_1n|altsyncram:\gen_auto:altsyncram_component
 wren_a => ~NO_FANOUT~
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -36869,7 +36869,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:cos_1n|altsyncram:\gen_auto:altsyncram_component|altsyncram_v091:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:cos_1n|altsyncram:\gen_auto:altsyncram_component|altsyncram_v091:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -36936,7 +36936,7 @@ q_a[6] <= ram_block1a6.PORTADATAOUT
 q_a[7] <= ram_block1a7.PORTADATAOUT
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:cos_2n
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:cos_2n
 global_clock_enable => altsyncram:gen_auto:altsyncram_component.clocken0
 address[0] => altsyncram:gen_auto:altsyncram_component.address_a[0]
 address[1] => altsyncram:gen_auto:altsyncram_component.address_a[1]
@@ -36954,7 +36954,7 @@ q[6] <= altsyncram:gen_auto:altsyncram_component.q_a[6]
 q[7] <= altsyncram:gen_auto:altsyncram_component.q_a[7]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:cos_2n|altsyncram:\gen_auto:altsyncram_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:cos_2n|altsyncram:\gen_auto:altsyncram_component
 wren_a => ~NO_FANOUT~
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -37000,7 +37000,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:cos_2n|altsyncram:\gen_auto:altsyncram_component|altsyncram_0191:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:cos_2n|altsyncram:\gen_auto:altsyncram_component|altsyncram_0191:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -37067,7 +37067,7 @@ q_a[6] <= ram_block1a6.PORTADATAOUT
 q_a[7] <= ram_block1a7.PORTADATAOUT
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:cos_3n
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:cos_3n
 global_clock_enable => altsyncram:gen_auto:altsyncram_component.clocken0
 address[0] => altsyncram:gen_auto:altsyncram_component.address_a[0]
 address[1] => altsyncram:gen_auto:altsyncram_component.address_a[1]
@@ -37085,7 +37085,7 @@ q[6] <= altsyncram:gen_auto:altsyncram_component.q_a[6]
 q[7] <= altsyncram:gen_auto:altsyncram_component.q_a[7]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:cos_3n|altsyncram:\gen_auto:altsyncram_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:cos_3n|altsyncram:\gen_auto:altsyncram_component
 wren_a => ~NO_FANOUT~
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -37131,7 +37131,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:cos_3n|altsyncram:\gen_auto:altsyncram_component|altsyncram_1191:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_3dp_rom_fft_131:twrom|twid_rom_fft_131:\gen_M4K:cos_3n|altsyncram:\gen_auto:altsyncram_component|altsyncram_1191:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -37198,7 +37198,7 @@ q_a[6] <= ram_block1a6.PORTADATAOUT
 q_a[7] <= ram_block1a7.PORTADATAOUT
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_lpprdadr2gen_fft_131:\gen_radix_2_last_pass:gen_lpp_addr
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_lpprdadr2gen_fft_131:\gen_radix_2_last_pass:gen_lpp_addr
 clk => asj_fft_tdl_bit_rst_fft_131:delay_en.clk
 clk => rd_addr_b[0]~reg0.CLK
 clk => rd_addr_b[1]~reg0.CLK
@@ -37276,7 +37276,7 @@ qe_select[1] <= <GND>
 en <= asj_fft_tdl_bit_rst_fft_131:delay_en.data_out
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_lpprdadr2gen_fft_131:\gen_radix_2_last_pass:gen_lpp_addr|asj_fft_tdl_bit_rst_fft_131:delay_en
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_lpprdadr2gen_fft_131:\gen_radix_2_last_pass:gen_lpp_addr|asj_fft_tdl_bit_rst_fft_131:delay_en
 clk => tdl_arr[0].CLK
 clk => tdl_arr[1].CLK
 clk => tdl_arr[2].CLK
@@ -37296,7 +37296,7 @@ data_in => tdl_arr.DATAA
 data_out <= tdl_arr[4].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_lpprdadr2gen_fft_131:\gen_radix_2_last_pass:gen_lpp_addr|asj_fft_tdl_rst_fft_131:\gen_M4K:delay_swd
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_lpprdadr2gen_fft_131:\gen_radix_2_last_pass:gen_lpp_addr|asj_fft_tdl_rst_fft_131:\gen_M4K:delay_swd
 clk => tdl_arr[4][0].CLK
 clk => tdl_arr[4][1].CLK
 clk => tdl_arr[3][0].CLK
@@ -37333,7 +37333,7 @@ data_out[0] <= tdl_arr[4][0].DB_MAX_OUTPUT_PORT_TYPE
 data_out[1] <= tdl_arr[4][1].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_cxb_addr_fft_131:\gen_radix_2_last_pass:ram_cxb_rd_lpp
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_cxb_addr_fft_131:\gen_radix_2_last_pass:ram_cxb_rd_lpp
 clk => ram_in_reg[3][0].CLK
 clk => ram_in_reg[3][1].CLK
 clk => ram_in_reg[3][2].CLK
@@ -37516,7 +37516,7 @@ sw_3_out[3] <= ram_in_reg[3][3].DB_MAX_OUTPUT_PORT_TYPE
 sw_3_out[4] <= ram_in_reg[3][4].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_tdl_bit_fft_131:\gen_radix_2_last_pass:delay_mid
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_tdl_bit_fft_131:\gen_radix_2_last_pass:delay_mid
 clk => tdl_arr[0].CLK
 clk => tdl_arr[1].CLK
 clk => tdl_arr[2].CLK
@@ -37531,7 +37531,7 @@ data_in => tdl_arr[0].DATAIN
 data_out <= tdl_arr[4].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_lpp_serial_r2_fft_131:\gen_radix_2_last_pass:lpp_r2
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_lpp_serial_r2_fft_131:\gen_radix_2_last_pass:lpp_r2
 global_clock_enable => asj_fft_tdl_bit_fft_131:gen_str_val:delay_val.global_clock_enable
 global_clock_enable => asj_fft_pround_fft_131:gen_full_rnd:u0.global_clock_enable
 global_clock_enable => asj_fft_pround_fft_131:gen_full_rnd:u1.global_clock_enable
@@ -37909,7 +37909,7 @@ data_imag_o[15] <= data_imag_o[15]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 data_val <= asj_fft_tdl_bit_fft_131:gen_str_val:delay_val.data_out
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_lpp_serial_r2_fft_131:\gen_radix_2_last_pass:lpp_r2|asj_fft_tdl_bit_fft_131:\gen_str_val:delay_val
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_lpp_serial_r2_fft_131:\gen_radix_2_last_pass:lpp_r2|asj_fft_tdl_bit_fft_131:\gen_str_val:delay_val
 clk => tdl_arr[0].CLK
 clk => tdl_arr[1].CLK
 clk => tdl_arr[2].CLK
@@ -37922,7 +37922,7 @@ data_in => tdl_arr[0].DATAIN
 data_out <= tdl_arr[3].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_lpp_serial_r2_fft_131:\gen_radix_2_last_pass:lpp_r2|asj_fft_pround_fft_131:\gen_full_rnd:u0
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_lpp_serial_r2_fft_131:\gen_radix_2_last_pass:lpp_r2|asj_fft_pround_fft_131:\gen_full_rnd:u0
 global_clock_enable => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLKEN
 clk => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLOCK
 clken => ~NO_FANOUT~
@@ -37963,7 +37963,7 @@ yout[14] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[15]
 yout[15] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[16]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_lpp_serial_r2_fft_131:\gen_radix_2_last_pass:lpp_r2|asj_fft_pround_fft_131:\gen_full_rnd:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_lpp_serial_r2_fft_131:\gen_radix_2_last_pass:lpp_r2|asj_fft_pround_fft_131:\gen_full_rnd:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
 dataa[0] => add_sub_14k:auto_generated.dataa[0]
 dataa[1] => add_sub_14k:auto_generated.dataa[1]
 dataa[2] => add_sub_14k:auto_generated.dataa[2]
@@ -38027,7 +38027,7 @@ cout <= <GND>
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_lpp_serial_r2_fft_131:\gen_radix_2_last_pass:lpp_r2|asj_fft_pround_fft_131:\gen_full_rnd:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_14k:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_lpp_serial_r2_fft_131:\gen_radix_2_last_pass:lpp_r2|asj_fft_pround_fft_131:\gen_full_rnd:u0|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_14k:auto_generated
 add_sub => ~NO_FANOUT~
 cin => op_1.IN36
 cin => op_1.IN37
@@ -38123,7 +38123,7 @@ result[16] <= pipeline_dffe[16].DB_MAX_OUTPUT_PORT_TYPE
 result[17] <= pipeline_dffe[17].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_lpp_serial_r2_fft_131:\gen_radix_2_last_pass:lpp_r2|asj_fft_pround_fft_131:\gen_full_rnd:u1
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_lpp_serial_r2_fft_131:\gen_radix_2_last_pass:lpp_r2|asj_fft_pround_fft_131:\gen_full_rnd:u1
 global_clock_enable => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLKEN
 clk => LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.CLOCK
 clken => ~NO_FANOUT~
@@ -38164,7 +38164,7 @@ yout[14] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[15]
 yout[15] <= LPM_ADD_SUB:gbrnd:nev:gp:lpm_add_sub_component.RESULT[16]
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_lpp_serial_r2_fft_131:\gen_radix_2_last_pass:lpp_r2|asj_fft_pround_fft_131:\gen_full_rnd:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_lpp_serial_r2_fft_131:\gen_radix_2_last_pass:lpp_r2|asj_fft_pround_fft_131:\gen_full_rnd:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component
 dataa[0] => add_sub_14k:auto_generated.dataa[0]
 dataa[1] => add_sub_14k:auto_generated.dataa[1]
 dataa[2] => add_sub_14k:auto_generated.dataa[2]
@@ -38228,7 +38228,7 @@ cout <= <GND>
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_lpp_serial_r2_fft_131:\gen_radix_2_last_pass:lpp_r2|asj_fft_pround_fft_131:\gen_full_rnd:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_14k:auto_generated
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_lpp_serial_r2_fft_131:\gen_radix_2_last_pass:lpp_r2|asj_fft_pround_fft_131:\gen_full_rnd:u1|LPM_ADD_SUB:\gbrnd:nev:gp:lpm_add_sub_component|add_sub_14k:auto_generated
 add_sub => ~NO_FANOUT~
 cin => op_1.IN36
 cin => op_1.IN37
@@ -38324,7 +38324,7 @@ result[16] <= pipeline_dffe[16].DB_MAX_OUTPUT_PORT_TYPE
 result[17] <= pipeline_dffe[17].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_tdl_bit_rst_fft_131:delay_lpp_en
+|firpga|fft_top:u_fft_top|fft:u_fft|asj_fft_sglstream_fft_131:asj_fft_sglstream_fft_131_inst|asj_fft_tdl_bit_rst_fft_131:delay_lpp_en
 clk => tdl_arr[0].CLK
 clk => tdl_arr[1].CLK
 clk => tdl_arr[2].CLK
@@ -38341,7 +38341,7 @@ data_in => tdl_arr.DATAA
 data_out <= tdl_arr[3].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus
 sys_clk => sys_clk.IN1
 sys_rst => data_imag[0].ACLR
 sys_rst => data_imag[1].ACLR
@@ -38534,7 +38534,7 @@ data_eop <= data_eop~reg0.DB_MAX_OUTPUT_PORT_TYPE
 data_valid <= data_valid~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst
 clk => clk.IN1
 radical[0] => radical[0].IN1
 radical[1] => radical[1].IN1
@@ -38603,7 +38603,7 @@ remainder[15] <= altsqrt:ALTSQRT_component.remainder
 remainder[16] <= altsqrt:ALTSQRT_component.remainder
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component
 radical[0] => dffpipe:a_delay.d[0]
 radical[1] => dffpipe:a_delay.d[1]
 radical[2] => dffpipe:a_delay.d[2]
@@ -38746,7 +38746,7 @@ remainder[15] <= dffpipe:r_final_dff.q[15]
 remainder[16] <= dffpipe:r_final_dff.q[16]
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[15]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[15]
 dataa[0] => add_sub_vqc:auto_generated.dataa[0]
 dataa[1] => add_sub_vqc:auto_generated.dataa[1]
 dataa[2] => add_sub_vqc:auto_generated.dataa[2]
@@ -38810,7 +38810,7 @@ cout <= add_sub_vqc:auto_generated.cout
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[15]|add_sub_vqc:auto_generated
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[15]|add_sub_vqc:auto_generated
 cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
 dataa[0] => op_1.IN37
 dataa[1] => op_1.IN35
@@ -38868,7 +38868,7 @@ result[16] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 result[17] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[14]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[14]
 dataa[0] => add_sub_uqc:auto_generated.dataa[0]
 dataa[1] => add_sub_uqc:auto_generated.dataa[1]
 dataa[2] => add_sub_uqc:auto_generated.dataa[2]
@@ -38929,7 +38929,7 @@ cout <= add_sub_uqc:auto_generated.cout
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[14]|add_sub_uqc:auto_generated
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[14]|add_sub_uqc:auto_generated
 cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
 dataa[0] => op_1.IN35
 dataa[1] => op_1.IN33
@@ -38984,7 +38984,7 @@ result[15] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 result[16] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[13]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[13]
 dataa[0] => add_sub_tqc:auto_generated.dataa[0]
 dataa[1] => add_sub_tqc:auto_generated.dataa[1]
 dataa[2] => add_sub_tqc:auto_generated.dataa[2]
@@ -39042,7 +39042,7 @@ cout <= add_sub_tqc:auto_generated.cout
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[13]|add_sub_tqc:auto_generated
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[13]|add_sub_tqc:auto_generated
 cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
 dataa[0] => op_1.IN33
 dataa[1] => op_1.IN31
@@ -39094,7 +39094,7 @@ result[14] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 result[15] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[12]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[12]
 dataa[0] => add_sub_sqc:auto_generated.dataa[0]
 dataa[1] => add_sub_sqc:auto_generated.dataa[1]
 dataa[2] => add_sub_sqc:auto_generated.dataa[2]
@@ -39149,7 +39149,7 @@ cout <= add_sub_sqc:auto_generated.cout
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[12]|add_sub_sqc:auto_generated
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[12]|add_sub_sqc:auto_generated
 cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
 dataa[0] => op_1.IN31
 dataa[1] => op_1.IN29
@@ -39198,7 +39198,7 @@ result[13] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 result[14] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[11]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[11]
 dataa[0] => add_sub_rqc:auto_generated.dataa[0]
 dataa[1] => add_sub_rqc:auto_generated.dataa[1]
 dataa[2] => add_sub_rqc:auto_generated.dataa[2]
@@ -39250,7 +39250,7 @@ cout <= add_sub_rqc:auto_generated.cout
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[11]|add_sub_rqc:auto_generated
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[11]|add_sub_rqc:auto_generated
 cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
 dataa[0] => op_1.IN29
 dataa[1] => op_1.IN27
@@ -39296,7 +39296,7 @@ result[12] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 result[13] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[10]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[10]
 dataa[0] => add_sub_qqc:auto_generated.dataa[0]
 dataa[1] => add_sub_qqc:auto_generated.dataa[1]
 dataa[2] => add_sub_qqc:auto_generated.dataa[2]
@@ -39345,7 +39345,7 @@ cout <= add_sub_qqc:auto_generated.cout
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[10]|add_sub_qqc:auto_generated
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[10]|add_sub_qqc:auto_generated
 cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
 dataa[0] => op_1.IN27
 dataa[1] => op_1.IN25
@@ -39388,7 +39388,7 @@ result[11] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 result[12] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[9]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[9]
 dataa[0] => add_sub_pqc:auto_generated.dataa[0]
 dataa[1] => add_sub_pqc:auto_generated.dataa[1]
 dataa[2] => add_sub_pqc:auto_generated.dataa[2]
@@ -39434,7 +39434,7 @@ cout <= add_sub_pqc:auto_generated.cout
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[9]|add_sub_pqc:auto_generated
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[9]|add_sub_pqc:auto_generated
 cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
 dataa[0] => op_1.IN25
 dataa[1] => op_1.IN23
@@ -39474,7 +39474,7 @@ result[10] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 result[11] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[8]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[8]
 dataa[0] => add_sub_oqc:auto_generated.dataa[0]
 dataa[1] => add_sub_oqc:auto_generated.dataa[1]
 dataa[2] => add_sub_oqc:auto_generated.dataa[2]
@@ -39517,7 +39517,7 @@ cout <= add_sub_oqc:auto_generated.cout
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[8]|add_sub_oqc:auto_generated
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[8]|add_sub_oqc:auto_generated
 cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
 dataa[0] => op_1.IN23
 dataa[1] => op_1.IN21
@@ -39554,7 +39554,7 @@ result[9] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 result[10] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[7]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[7]
 dataa[0] => add_sub_nqc:auto_generated.dataa[0]
 dataa[1] => add_sub_nqc:auto_generated.dataa[1]
 dataa[2] => add_sub_nqc:auto_generated.dataa[2]
@@ -39594,7 +39594,7 @@ cout <= add_sub_nqc:auto_generated.cout
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[7]|add_sub_nqc:auto_generated
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[7]|add_sub_nqc:auto_generated
 cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
 dataa[0] => op_1.IN21
 dataa[1] => op_1.IN19
@@ -39628,7 +39628,7 @@ result[8] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 result[9] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[6]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[6]
 dataa[0] => add_sub_fpc:auto_generated.dataa[0]
 dataa[1] => add_sub_fpc:auto_generated.dataa[1]
 dataa[2] => add_sub_fpc:auto_generated.dataa[2]
@@ -39665,7 +39665,7 @@ cout <= add_sub_fpc:auto_generated.cout
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[6]|add_sub_fpc:auto_generated
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[6]|add_sub_fpc:auto_generated
 cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
 dataa[0] => op_1.IN19
 dataa[1] => op_1.IN17
@@ -39696,7 +39696,7 @@ result[7] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 result[8] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[5]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[5]
 dataa[0] => add_sub_epc:auto_generated.dataa[0]
 dataa[1] => add_sub_epc:auto_generated.dataa[1]
 dataa[2] => add_sub_epc:auto_generated.dataa[2]
@@ -39730,7 +39730,7 @@ cout <= add_sub_epc:auto_generated.cout
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[5]|add_sub_epc:auto_generated
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[5]|add_sub_epc:auto_generated
 cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
 dataa[0] => op_1.IN17
 dataa[1] => op_1.IN15
@@ -39758,7 +39758,7 @@ result[6] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 result[7] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[4]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[4]
 dataa[0] => add_sub_dpc:auto_generated.dataa[0]
 dataa[1] => add_sub_dpc:auto_generated.dataa[1]
 dataa[2] => add_sub_dpc:auto_generated.dataa[2]
@@ -39789,7 +39789,7 @@ cout <= add_sub_dpc:auto_generated.cout
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[4]|add_sub_dpc:auto_generated
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[4]|add_sub_dpc:auto_generated
 cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
 dataa[0] => op_1.IN15
 dataa[1] => op_1.IN13
@@ -39814,7 +39814,7 @@ result[5] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 result[6] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[3]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[3]
 dataa[0] => add_sub_cpc:auto_generated.dataa[0]
 dataa[1] => add_sub_cpc:auto_generated.dataa[1]
 dataa[2] => add_sub_cpc:auto_generated.dataa[2]
@@ -39842,7 +39842,7 @@ cout <= add_sub_cpc:auto_generated.cout
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[3]|add_sub_cpc:auto_generated
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[3]|add_sub_cpc:auto_generated
 cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
 dataa[0] => op_1.IN13
 dataa[1] => op_1.IN11
@@ -39864,7 +39864,7 @@ result[4] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 result[5] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[2]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[2]
 dataa[0] => add_sub_bpc:auto_generated.dataa[0]
 dataa[1] => add_sub_bpc:auto_generated.dataa[1]
 dataa[2] => add_sub_bpc:auto_generated.dataa[2]
@@ -39889,7 +39889,7 @@ cout <= add_sub_bpc:auto_generated.cout
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[2]|add_sub_bpc:auto_generated
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[2]|add_sub_bpc:auto_generated
 cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
 dataa[0] => op_1.IN11
 dataa[1] => op_1.IN9
@@ -39908,7 +39908,7 @@ result[3] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 result[4] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[1]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[1]
 dataa[0] => add_sub_apc:auto_generated.dataa[0]
 dataa[1] => add_sub_apc:auto_generated.dataa[1]
 dataa[2] => add_sub_apc:auto_generated.dataa[2]
@@ -39930,7 +39930,7 @@ cout <= add_sub_apc:auto_generated.cout
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[1]|add_sub_apc:auto_generated
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[1]|add_sub_apc:auto_generated
 cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
 dataa[0] => op_1.IN9
 dataa[1] => op_1.IN7
@@ -39946,7 +39946,7 @@ result[2] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 result[3] <= op_1.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[0]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[0]
 dataa[0] => add_sub_8pc:auto_generated.dataa[0]
 dataa[1] => add_sub_8pc:auto_generated.dataa[1]
 datab[0] => add_sub_8pc:auto_generated.datab[0]
@@ -39962,7 +39962,7 @@ cout <= add_sub_8pc:auto_generated.cout
 overflow <= <GND>
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[0]|add_sub_8pc:auto_generated
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|LPM_ADD_SUB:subtractors[0]|add_sub_8pc:auto_generated
 cout <= carry_eqn[1].DB_MAX_OUTPUT_PORT_TYPE
 dataa[0] => carry_eqn[0].IN0
 dataa[0] => _.IN0
@@ -39976,7 +39976,7 @@ result[0] <= sum_eqn[0].DB_MAX_OUTPUT_PORT_TYPE
 result[1] <= sum_eqn[1].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:a_delay
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:a_delay
 clock => sr[0][31].CLK
 clock => sr[0][30].CLK
 clock => sr[0][29].CLK
@@ -40268,7 +40268,7 @@ prn => sr[0][1].PRESET
 prn => sr[0][0].PRESET
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[15]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[15]
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -40344,7 +40344,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[14]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[14]
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -40416,7 +40416,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[13]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[13]
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -40484,7 +40484,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[12]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[12]
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -40548,7 +40548,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[11]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[11]
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -40608,7 +40608,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[10]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[10]
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -40664,7 +40664,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[9]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[9]
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -40716,7 +40716,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[8]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[8]
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -40764,7 +40764,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[7]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[7]
 clock => sr[0][8].CLK
 clock => sr[0][7].CLK
 clock => sr[0][6].CLK
@@ -40849,7 +40849,7 @@ prn => sr[0][1].PRESET
 prn => sr[0][0].PRESET
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[6]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[6]
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -40889,7 +40889,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[5]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[5]
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -40925,7 +40925,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[4]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[4]
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -40957,7 +40957,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[3]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[3]
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -40985,7 +40985,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[2]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[2]
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -41009,7 +41009,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[1]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[1]
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -41029,7 +41029,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[0]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:b_dffe[0]
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -41045,7 +41045,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[15]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[15]
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -41121,7 +41121,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[14]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[14]
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -41193,7 +41193,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[13]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[13]
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -41261,7 +41261,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[12]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[12]
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -41325,7 +41325,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[11]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[11]
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -41385,7 +41385,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[10]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[10]
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -41441,7 +41441,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[9]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[9]
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -41493,7 +41493,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[8]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[8]
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -41541,7 +41541,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[7]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[7]
 clock => sr[0][8].CLK
 clock => sr[0][7].CLK
 clock => sr[0][6].CLK
@@ -41626,7 +41626,7 @@ prn => sr[0][1].PRESET
 prn => sr[0][0].PRESET
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[6]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[6]
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -41666,7 +41666,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[5]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[5]
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -41702,7 +41702,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[4]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[4]
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -41734,7 +41734,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[3]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[3]
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -41762,7 +41762,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[2]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[2]
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -41786,7 +41786,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[1]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[1]
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -41806,7 +41806,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[0]
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_dffe[0]
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -41822,7 +41822,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:q_final_dff
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:q_final_dff
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -41894,7 +41894,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_final_dff
+|firpga|fft_top:u_fft_top|data_modulus:u_data_modulus|sqrt:sqrt_inst|altsqrt:ALTSQRT_component|dffpipe:r_final_dff
 clock => _.IN0
 d[0] => pq[0][0].DATAIN
 d[0] => q[0].IN1
@@ -41970,7 +41970,7 @@ clrn => _.IN1
 prn => _.IN1
 
 
-|fftpga|lcd_top:u_lcd_top
+|firpga|lcd_top:u_lcd_top
 sys_clk => sys_clk.IN3
 sys_rst => sys_rst.IN3
 fft_data[0] => fft_data[0].IN1
@@ -42016,7 +42016,7 @@ lcd_rst <= lcd_driver:u_lcd_driver.lcd_rst
 lcd_pclk <= lcd_driver:u_lcd_driver.lcd_clk
 
 
-|fftpga|lcd_top:u_lcd_top|clk_div:u_clk_div
+|firpga|lcd_top:u_lcd_top|clk_div:u_clk_div
 sys_clk => lcd_pclk~reg0.CLK
 sys_clk => lcd_clk_25.CLK
 sys_rst => lcd_pclk~reg0.ACLR
@@ -42024,7 +42024,7 @@ sys_rst => lcd_clk_25.ACLR
 lcd_pclk <= lcd_pclk~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|lcd_top:u_lcd_top|lcd_fifo_ctrl:u_fifo_ctrl
+|firpga|lcd_top:u_lcd_top|lcd_fifo_ctrl:u_fifo_ctrl
 sys_clk => wr_cnt[0].CLK
 sys_clk => wr_cnt[1].CLK
 sys_clk => wr_cnt[2].CLK
@@ -42156,7 +42156,7 @@ fifo_wr_req <= fifo_wr_req.DB_MAX_OUTPUT_PORT_TYPE
 fifo_rd_req <= fifo_rd_req~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|lcd_top:u_lcd_top|lcd_driver:u_lcd_driver
+|firpga|lcd_top:u_lcd_top|lcd_driver:u_lcd_driver
 lcd_pclk => lcd_bl~reg0.CLK
 lcd_pclk => lcd_rst~reg0.CLK
 lcd_pclk => v_cnt[0].CLK
@@ -42290,7 +42290,7 @@ lcd_rgb[15] <= lcd_rgb.DB_MAX_OUTPUT_PORT_TYPE
 lcd_rst <= lcd_rst~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|lcd_top:u_lcd_top|lcd_display:u_lcd_display
+|firpga|lcd_top:u_lcd_top|lcd_display:u_lcd_display
 lcd_clk => ~NO_FANOUT~
 sys_rst => ~NO_FANOUT~
 pixel_xpos[0] => LessThan0.IN16
@@ -42381,7 +42381,7 @@ lcd_data[14] <= lcd_data.DB_MAX_OUTPUT_PORT_TYPE
 lcd_data[15] <= lcd_data.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|lcd_top:u_lcd_top|fifo:u_fifo
+|firpga|lcd_top:u_lcd_top|fifo:u_fifo
 aclr => aclr.IN1
 data[0] => data[0].IN1
 data[1] => data[1].IN1
@@ -42429,7 +42429,7 @@ rdusedw[5] <= dcfifo:dcfifo_component.rdusedw
 wrfull <= dcfifo:dcfifo_component.wrfull
 
 
-|fftpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component
+|firpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component
 data[0] => dcfifo_4sk1:auto_generated.data[0]
 data[1] => dcfifo_4sk1:auto_generated.data[1]
 data[2] => dcfifo_4sk1:auto_generated.data[2]
@@ -42485,7 +42485,7 @@ wrusedw[4] <= <GND>
 wrusedw[5] <= <GND>
 
 
-|fftpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component|dcfifo_4sk1:auto_generated
+|firpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component|dcfifo_4sk1:auto_generated
 aclr => a_graycounter_njc:wrptr_g1p.aclr
 aclr => delayed_wrptr_g[6].IN0
 aclr => wrptr_g[6].IN0
@@ -42565,7 +42565,7 @@ wrfull <= int_wrfull.DB_MAX_OUTPUT_PORT_TYPE
 wrreq => valid_wrreq.IN0
 
 
-|fftpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component|dcfifo_4sk1:auto_generated|a_gray2bin_sgb:rdptr_g_gray2bin
+|firpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component|dcfifo_4sk1:auto_generated|a_gray2bin_sgb:rdptr_g_gray2bin
 bin[0] <= xor0.DB_MAX_OUTPUT_PORT_TYPE
 bin[1] <= xor1.DB_MAX_OUTPUT_PORT_TYPE
 bin[2] <= xor2.DB_MAX_OUTPUT_PORT_TYPE
@@ -42583,7 +42583,7 @@ gray[6] => bin[6].DATAIN
 gray[6] => xor5.IN0
 
 
-|fftpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component|dcfifo_4sk1:auto_generated|a_gray2bin_sgb:rs_dgwp_gray2bin
+|firpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component|dcfifo_4sk1:auto_generated|a_gray2bin_sgb:rs_dgwp_gray2bin
 bin[0] <= xor0.DB_MAX_OUTPUT_PORT_TYPE
 bin[1] <= xor1.DB_MAX_OUTPUT_PORT_TYPE
 bin[2] <= xor2.DB_MAX_OUTPUT_PORT_TYPE
@@ -42601,7 +42601,7 @@ gray[6] => bin[6].DATAIN
 gray[6] => xor5.IN0
 
 
-|fftpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component|dcfifo_4sk1:auto_generated|a_graycounter_r57:rdptr_g1p
+|firpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component|dcfifo_4sk1:auto_generated|a_graycounter_r57:rdptr_g1p
 aclr => counter5a1.IN0
 aclr => counter5a0.IN0
 aclr => parity6.IN0
@@ -42636,7 +42636,7 @@ q[5] <= counter5a5.DB_MAX_OUTPUT_PORT_TYPE
 q[6] <= counter5a6.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component|dcfifo_4sk1:auto_generated|a_graycounter_njc:wrptr_g1p
+|firpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component|dcfifo_4sk1:auto_generated|a_graycounter_njc:wrptr_g1p
 aclr => counter8a1.IN0
 aclr => counter8a0.IN0
 aclr => parity9.IN0
@@ -42671,7 +42671,7 @@ q[5] <= counter8a5.DB_MAX_OUTPUT_PORT_TYPE
 q[6] <= counter8a6.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component|dcfifo_4sk1:auto_generated|altsyncram_oj31:fifo_ram
+|firpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component|dcfifo_4sk1:auto_generated|altsyncram_oj31:fifo_ram
 aclr1 => ram_block11a0.CLR1
 aclr1 => ram_block11a1.CLR1
 aclr1 => ram_block11a2.CLR1
@@ -43010,7 +43010,7 @@ wren_a => ram_block11a15.PORTAWE
 wren_a => ram_block11a15.ENA0
 
 
-|fftpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component|dcfifo_4sk1:auto_generated|dffpipe_3dc:rdaclr
+|firpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component|dcfifo_4sk1:auto_generated|dffpipe_3dc:rdaclr
 clock => dffe5a[0].CLK
 clock => dffe6a[0].CLK
 clrn => dffe5a[0].ACLR
@@ -43019,7 +43019,7 @@ d[0] => dffe5a[0].IN0
 q[0] <= dffe6a[0].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component|dcfifo_4sk1:auto_generated|dffpipe_ed9:rs_brp
+|firpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component|dcfifo_4sk1:auto_generated|dffpipe_ed9:rs_brp
 clock => dffe7a[6].CLK
 clock => dffe7a[5].CLK
 clock => dffe7a[4].CLK
@@ -43050,7 +43050,7 @@ q[5] <= dffe7a[5].DB_MAX_OUTPUT_PORT_TYPE
 q[6] <= dffe7a[6].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component|dcfifo_4sk1:auto_generated|dffpipe_ed9:rs_bwp
+|firpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component|dcfifo_4sk1:auto_generated|dffpipe_ed9:rs_bwp
 clock => dffe7a[6].CLK
 clock => dffe7a[5].CLK
 clock => dffe7a[4].CLK
@@ -43081,7 +43081,7 @@ q[5] <= dffe7a[5].DB_MAX_OUTPUT_PORT_TYPE
 q[6] <= dffe7a[6].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component|dcfifo_4sk1:auto_generated|alt_synch_pipe_ikd:rs_dgwp
+|firpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component|dcfifo_4sk1:auto_generated|alt_synch_pipe_ikd:rs_dgwp
 clock => dffpipe_hd9:dffpipe8.clock
 clrn => dffpipe_hd9:dffpipe8.clrn
 d[0] => dffpipe_hd9:dffpipe8.d[0]
@@ -43100,7 +43100,7 @@ q[5] <= dffpipe_hd9:dffpipe8.q[5]
 q[6] <= dffpipe_hd9:dffpipe8.q[6]
 
 
-|fftpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component|dcfifo_4sk1:auto_generated|alt_synch_pipe_ikd:rs_dgwp|dffpipe_hd9:dffpipe8
+|firpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component|dcfifo_4sk1:auto_generated|alt_synch_pipe_ikd:rs_dgwp|dffpipe_hd9:dffpipe8
 clock => dffe10a[6].CLK
 clock => dffe10a[5].CLK
 clock => dffe10a[4].CLK
@@ -43145,7 +43145,7 @@ q[5] <= dffe10a[5].DB_MAX_OUTPUT_PORT_TYPE
 q[6] <= dffe10a[6].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component|dcfifo_4sk1:auto_generated|alt_synch_pipe_jkd:ws_dgrp
+|firpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component|dcfifo_4sk1:auto_generated|alt_synch_pipe_jkd:ws_dgrp
 clock => dffpipe_id9:dffpipe11.clock
 clrn => dffpipe_id9:dffpipe11.clrn
 d[0] => dffpipe_id9:dffpipe11.d[0]
@@ -43164,7 +43164,7 @@ q[5] <= dffpipe_id9:dffpipe11.q[5]
 q[6] <= dffpipe_id9:dffpipe11.q[6]
 
 
-|fftpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component|dcfifo_4sk1:auto_generated|alt_synch_pipe_jkd:ws_dgrp|dffpipe_id9:dffpipe11
+|firpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component|dcfifo_4sk1:auto_generated|alt_synch_pipe_jkd:ws_dgrp|dffpipe_id9:dffpipe11
 clock => dffe12a[6].CLK
 clock => dffe12a[5].CLK
 clock => dffe12a[4].CLK
@@ -43209,7 +43209,7 @@ q[5] <= dffe13a[5].DB_MAX_OUTPUT_PORT_TYPE
 q[6] <= dffe13a[6].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fftpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component|dcfifo_4sk1:auto_generated|cmpr_d66:rdempty_eq_comp
+|firpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component|dcfifo_4sk1:auto_generated|cmpr_d66:rdempty_eq_comp
 aeb <= aeb_result_wire[0].DB_MAX_OUTPUT_PORT_TYPE
 dataa[0] => data_wire[0].IN0
 dataa[1] => data_wire[0].IN0
@@ -43227,7 +43227,7 @@ datab[5] => data_wire[2].IN1
 datab[6] => data_wire[3].IN1
 
 
-|fftpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component|dcfifo_4sk1:auto_generated|cmpr_d66:wrfull_eq_comp
+|firpga|lcd_top:u_lcd_top|fifo:u_fifo|dcfifo:dcfifo_component|dcfifo_4sk1:auto_generated|cmpr_d66:wrfull_eq_comp
 aeb <= aeb_result_wire[0].DB_MAX_OUTPUT_PORT_TYPE
 dataa[0] => data_wire[0].IN0
 dataa[1] => data_wire[0].IN0
@@ -43245,7 +43245,7 @@ datab[5] => data_wire[2].IN1
 datab[6] => data_wire[3].IN1
 
 
-|fftpga|fir_filter_mat:u_fir_filter_mat
+|firpga|fir_filter_mat:u_fir_filter_mat
 clk => output_register[0].CLK
 clk => output_register[1].CLK
 clk => output_register[2].CLK
