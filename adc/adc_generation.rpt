@@ -1,0 +1,117 @@
+Info: Starting: Create simulation model
+Info: qsys-generate C:\Users\Mitch\Desktop\CodeGenerated\DE10_LITE\firpga\adc.qsys --simulation=VHDL --allow-mixed-language-simulation --output-directory=C:\Users\Mitch\Desktop\CodeGenerated\DE10_LITE\firpga\adc\simulation --family="MAX 10" --part=10M50DAF484C7G
+Progress: Loading firpga/adc.qsys
+Progress: Reading input file
+Progress: Adding adc_mega_0 [altera_up_avalon_adc_mega 18.0]
+Progress: Parameterizing module adc_mega_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: adc: Generating adc "adc" for SIM_VHDL
+Info: adc_mega_0: Starting Generation of ADC Controller for DE-series Board
+Warning: adc_mega_0: add_file from generate callback added file altera_modular_adc_control.v with wrong prefix; use [get_generation_property output_name] to get correct prefix
+Warning: adc_mega_0: add_file on static file E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_control.v from generate callback is unsafe; add static files from main program
+Warning: adc_mega_0: add_file from generate callback added file altera_modular_adc_control_avrg_fifo.v with wrong prefix; use [get_generation_property output_name] to get correct prefix
+Warning: adc_mega_0: add_file on static file E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_control_avrg_fifo.v from generate callback is unsafe; add static files from main program
+Warning: adc_mega_0: add_file from generate callback added file altera_modular_adc_control_fsm.v with wrong prefix; use [get_generation_property output_name] to get correct prefix
+Warning: adc_mega_0: add_file on static file E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_control_fsm.v from generate callback is unsafe; add static files from main program
+Warning: adc_mega_0: add_file from generate callback added file altera_modular_adc_sample_store.v with wrong prefix; use [get_generation_property output_name] to get correct prefix
+Warning: adc_mega_0: add_file on static file E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_sample_store.v from generate callback is unsafe; add static files from main program
+Warning: adc_mega_0: add_file from generate callback added file altera_modular_adc_sample_store_ram.v with wrong prefix; use [get_generation_property output_name] to get correct prefix
+Warning: adc_mega_0: add_file on static file E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_sample_store_ram.v from generate callback is unsafe; add static files from main program
+Warning: adc_mega_0: add_file from generate callback added file altera_modular_adc_sequencer.v with wrong prefix; use [get_generation_property output_name] to get correct prefix
+Warning: adc_mega_0: add_file on static file E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_sequencer.v from generate callback is unsafe; add static files from main program
+Warning: adc_mega_0: add_file from generate callback added file altera_modular_adc_sequencer_csr.v with wrong prefix; use [get_generation_property output_name] to get correct prefix
+Warning: adc_mega_0: add_file on static file E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_sequencer_csr.v from generate callback is unsafe; add static files from main program
+Warning: adc_mega_0: add_file from generate callback added file altera_modular_adc_sequencer_ctrl.v with wrong prefix; use [get_generation_property output_name] to get correct prefix
+Warning: adc_mega_0: add_file on static file E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_sequencer_ctrl.v from generate callback is unsafe; add static files from main program
+Warning: adc_mega_0: add_file from generate callback added file chsel_code_converter_sw_to_hw.v with wrong prefix; use [get_generation_property output_name] to get correct prefix
+Warning: adc_mega_0: add_file on static file E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/chsel_code_converter_sw_to_hw.v from generate callback is unsafe; add static files from main program
+Warning: adc_mega_0: add_file from generate callback added file DE10_Lite_ADC_Core_modular_adc_0.v with wrong prefix; use [get_generation_property output_name] to get correct prefix
+Warning: adc_mega_0: add_file on static file E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/DE10_Lite_ADC_Core_modular_adc_0.v from generate callback is unsafe; add static files from main program
+Warning: adc_mega_0: add_file from generate callback added file fiftyfivenm_adcblock_primitive_wrapper.v with wrong prefix; use [get_generation_property output_name] to get correct prefix
+Warning: adc_mega_0: add_file on static file E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/fiftyfivenm_adcblock_primitive_wrapper.v from generate callback is unsafe; add static files from main program
+Warning: adc_mega_0: add_file from generate callback added file fiftyfivenm_adcblock_top_wrapper.v with wrong prefix; use [get_generation_property output_name] to get correct prefix
+Warning: adc_mega_0: add_file on static file E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/fiftyfivenm_adcblock_top_wrapper.v from generate callback is unsafe; add static files from main program
+Info: adc_mega_0: E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/altera_up_avalon_adv_adc.v E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_control.v E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_control_avrg_fifo.v E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_control_fsm.v E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_sample_store.v E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_sample_store_ram.v E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_sequencer.v E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_sequencer_csr.v E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_sequencer_ctrl.v E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/chsel_code_converter_sw_to_hw.v E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/DE10_Lite_ADC_Core_modular_adc_0.v E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/fiftyfivenm_adcblock_primitive_wrapper.v E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/fiftyfivenm_adcblock_top_wrapper.v C:/Users/Mitch/AppData/Local/Temp/alt8884_4441626541426736212.dir/0002_sopcgen/adc_adc_mega_0.v
+Error: adc_mega_0: Generation callback did not provide a top level file (expected `add_file $output_dir/adc_adc_mega_0.v|vhd|sv {SIMULATION SYNTHESIS}`)
+Warning: adc_mega_0: No files generated for fileset SIM_VHDL
+Info: adc_mega_0: "adc" instantiated altera_up_avalon_adc_mega "adc_mega_0"
+Info: adc: Done "adc" with 2 modules, 1 files
+Error: qsys-generate failed with exit code 1: 1 Error, 25 Warnings
+Info: Finished: Create simulation model
+Info: Starting: Create Modelsim Project.
+Info: sim-script-gen --spd=C:\Users\Mitch\Desktop\CodeGenerated\DE10_LITE\firpga\adc\adc.spd --output-directory=C:/Users/Mitch/Desktop/CodeGenerated/DE10_LITE/firpga/adc/simulation/ --use-relative-paths=true
+Info: Doing: ip-make-simscript --spd=C:\Users\Mitch\Desktop\CodeGenerated\DE10_LITE\firpga\adc\adc.spd --output-directory=C:/Users/Mitch/Desktop/CodeGenerated/DE10_LITE/firpga/adc/simulation/ --use-relative-paths=true
+Info: Generating the following file(s) for MODELSIM simulator in C:/Users/Mitch/Desktop/CodeGenerated/DE10_LITE/firpga/adc/simulation/ directory:
+Info: 	mentor/msim_setup.tcl
+Info: Skipping VCS script generation since VHDL file $QUARTUS_INSTALL_DIR/eda/sim_lib/altera_syn_attributes.vhd is required for simulation
+Info: Generating the following file(s) for VCSMX simulator in C:/Users/Mitch/Desktop/CodeGenerated/DE10_LITE/firpga/adc/simulation/ directory:
+Info: 	synopsys/vcsmx/synopsys_sim.setup
+Info: 	synopsys/vcsmx/vcsmx_setup.sh
+Info: Generating the following file(s) for NCSIM simulator in C:/Users/Mitch/Desktop/CodeGenerated/DE10_LITE/firpga/adc/simulation/ directory:
+Info: 	cadence/cds.lib
+Info: 	cadence/hdl.var
+Info: 	cadence/ncsim_setup.sh
+Info: Generating the following file(s) for RIVIERA simulator in C:/Users/Mitch/Desktop/CodeGenerated/DE10_LITE/firpga/adc/simulation/ directory:
+Info: 	aldec/rivierapro_setup.tcl
+Info: For information on how to simulate your IP, see the explanatory comments in the simulator-specific subdirectories under C:/Users/Mitch/Desktop/CodeGenerated/DE10_LITE/firpga/adc/simulation/.
+Info: Regenerate these scripts whenever you make any change to any Quartus-generated IP in your project.
+Info: Finished: Create Modelsim Project.
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\Users\Mitch\Desktop\CodeGenerated\DE10_LITE\firpga\adc.qsys --block-symbol-file --output-directory=C:\Users\Mitch\Desktop\CodeGenerated\DE10_LITE\firpga\adc --family="MAX 10" --part=10M50DAF484C7G
+Progress: Loading firpga/adc.qsys
+Progress: Reading input file
+Progress: Adding adc_mega_0 [altera_up_avalon_adc_mega 18.0]
+Progress: Parameterizing module adc_mega_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\Users\Mitch\Desktop\CodeGenerated\DE10_LITE\firpga\adc.qsys --synthesis=VHDL --greybox --output-directory=C:\Users\Mitch\Desktop\CodeGenerated\DE10_LITE\firpga\adc\synthesis --family="MAX 10" --part=10M50DAF484C7G
+Progress: Loading firpga/adc.qsys
+Progress: Reading input file
+Progress: Adding adc_mega_0 [altera_up_avalon_adc_mega 18.0]
+Progress: Parameterizing module adc_mega_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: adc: Generating adc "adc" for QUARTUS_SYNTH
+Info: adc_mega_0: Starting Generation of ADC Controller for DE-series Board
+Warning: adc_mega_0: add_file from generate callback added file altera_modular_adc_control.v with wrong prefix; use [get_generation_property output_name] to get correct prefix
+Warning: adc_mega_0: add_file on static file E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_control.v from generate callback is unsafe; add static files from main program
+Warning: adc_mega_0: add_file from generate callback added file altera_modular_adc_control_avrg_fifo.v with wrong prefix; use [get_generation_property output_name] to get correct prefix
+Warning: adc_mega_0: add_file on static file E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_control_avrg_fifo.v from generate callback is unsafe; add static files from main program
+Warning: adc_mega_0: add_file from generate callback added file altera_modular_adc_control_fsm.v with wrong prefix; use [get_generation_property output_name] to get correct prefix
+Warning: adc_mega_0: add_file on static file E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_control_fsm.v from generate callback is unsafe; add static files from main program
+Warning: adc_mega_0: add_file from generate callback added file altera_modular_adc_sample_store.v with wrong prefix; use [get_generation_property output_name] to get correct prefix
+Warning: adc_mega_0: add_file on static file E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_sample_store.v from generate callback is unsafe; add static files from main program
+Warning: adc_mega_0: add_file from generate callback added file altera_modular_adc_sample_store_ram.v with wrong prefix; use [get_generation_property output_name] to get correct prefix
+Warning: adc_mega_0: add_file on static file E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_sample_store_ram.v from generate callback is unsafe; add static files from main program
+Warning: adc_mega_0: add_file from generate callback added file altera_modular_adc_sequencer.v with wrong prefix; use [get_generation_property output_name] to get correct prefix
+Warning: adc_mega_0: add_file on static file E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_sequencer.v from generate callback is unsafe; add static files from main program
+Warning: adc_mega_0: add_file from generate callback added file altera_modular_adc_sequencer_csr.v with wrong prefix; use [get_generation_property output_name] to get correct prefix
+Warning: adc_mega_0: add_file on static file E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_sequencer_csr.v from generate callback is unsafe; add static files from main program
+Warning: adc_mega_0: add_file from generate callback added file altera_modular_adc_sequencer_ctrl.v with wrong prefix; use [get_generation_property output_name] to get correct prefix
+Warning: adc_mega_0: add_file on static file E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_sequencer_ctrl.v from generate callback is unsafe; add static files from main program
+Warning: adc_mega_0: add_file from generate callback added file chsel_code_converter_sw_to_hw.v with wrong prefix; use [get_generation_property output_name] to get correct prefix
+Warning: adc_mega_0: add_file on static file E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/chsel_code_converter_sw_to_hw.v from generate callback is unsafe; add static files from main program
+Warning: adc_mega_0: add_file from generate callback added file DE10_Lite_ADC_Core_modular_adc_0.v with wrong prefix; use [get_generation_property output_name] to get correct prefix
+Warning: adc_mega_0: add_file on static file E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/DE10_Lite_ADC_Core_modular_adc_0.v from generate callback is unsafe; add static files from main program
+Warning: adc_mega_0: add_file from generate callback added file fiftyfivenm_adcblock_primitive_wrapper.v with wrong prefix; use [get_generation_property output_name] to get correct prefix
+Warning: adc_mega_0: add_file on static file E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/fiftyfivenm_adcblock_primitive_wrapper.v from generate callback is unsafe; add static files from main program
+Warning: adc_mega_0: add_file from generate callback added file fiftyfivenm_adcblock_top_wrapper.v with wrong prefix; use [get_generation_property output_name] to get correct prefix
+Warning: adc_mega_0: add_file on static file E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/fiftyfivenm_adcblock_top_wrapper.v from generate callback is unsafe; add static files from main program
+Info: adc_mega_0: E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/altera_up_avalon_adv_adc.v E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_control.v E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_control_avrg_fifo.v E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_control_fsm.v E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_sample_store.v E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_sample_store_ram.v E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_sequencer.v E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_sequencer_csr.v E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/altera_modular_adc_sequencer_ctrl.v E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/chsel_code_converter_sw_to_hw.v E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/DE10_Lite_ADC_Core_modular_adc_0.v E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/fiftyfivenm_adcblock_primitive_wrapper.v E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_adc/hdl/de10/fiftyfivenm_adcblock_top_wrapper.v C:/Users/Mitch/AppData/Local/Temp/alt8884_4441626541426736212.dir/0004_sopcgen/adc_adc_mega_0.v
+Info: adc_mega_0: "adc" instantiated altera_up_avalon_adc_mega "adc_mega_0"
+Info: adc: Done "adc" with 2 modules, 15 files
+Info: Generating third-party timing and resource estimation model ...
+Info: Done generating third-party timing and resource estimation model.
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

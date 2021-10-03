@@ -1,0 +1,66 @@
+Info: Starting: Create simulation model
+Info: qsys-generate "C:\Users\Mitch\OneDrive - The University of Western Australia\ELEC5552\CodeGenerated\DE10_LITE\firpga\usb.qsys" --simulation=VHDL --allow-mixed-language-simulation --output-directory="C:\Users\Mitch\OneDrive - The University of Western Australia\ELEC5552\CodeGenerated\DE10_LITE\firpga\usb\simulation" --family="MAX 10" --part=10M50DAF484C7G
+Progress: Loading firpga/usb.qsys
+Progress: Reading input file
+Progress: Adding usb_0 [altera_up_avalon_usb 18.0]
+Progress: Parameterizing module usb_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: usb: Generating usb "usb" for SIM_VHDL
+Info: usb_0: Starting Generation of USB Controller
+Warning: usb_0: No files generated for fileset SIM_VHDL
+Info: usb_0: "usb" instantiated altera_up_avalon_usb "usb_0"
+Info: usb: Done "usb" with 2 modules, 1 files
+Info: qsys-generate succeeded.
+Info: Finished: Create simulation model
+Info: Starting: Create Modelsim Project.
+Info: sim-script-gen --spd="C:\Users\Mitch\OneDrive - The University of Western Australia\ELEC5552\CodeGenerated\DE10_LITE\firpga\usb\usb.spd" --output-directory="C:/Users/Mitch/OneDrive - The University of Western Australia/ELEC5552/CodeGenerated/DE10_LITE/firpga/usb/simulation/" --use-relative-paths=true
+Info: Doing: ip-make-simscript --spd=C:\Users\Mitch\OneDrive - The University of Western Australia\ELEC5552\CodeGenerated\DE10_LITE\firpga\usb\usb.spd --output-directory=C:/Users/Mitch/OneDrive - The University of Western Australia/ELEC5552/CodeGenerated/DE10_LITE/firpga/usb/simulation/ --use-relative-paths=true
+Info: Generating the following file(s) for MODELSIM simulator in C:/Users/Mitch/OneDrive - The University of Western Australia/ELEC5552/CodeGenerated/DE10_LITE/firpga/usb/simulation/ directory:
+Info: 	mentor/msim_setup.tcl
+Info: Skipping VCS script generation since VHDL file $QUARTUS_INSTALL_DIR/eda/sim_lib/altera_syn_attributes.vhd is required for simulation
+Info: Generating the following file(s) for VCSMX simulator in C:/Users/Mitch/OneDrive - The University of Western Australia/ELEC5552/CodeGenerated/DE10_LITE/firpga/usb/simulation/ directory:
+Info: 	synopsys/vcsmx/synopsys_sim.setup
+Info: 	synopsys/vcsmx/vcsmx_setup.sh
+Info: Generating the following file(s) for NCSIM simulator in C:/Users/Mitch/OneDrive - The University of Western Australia/ELEC5552/CodeGenerated/DE10_LITE/firpga/usb/simulation/ directory:
+Info: 	cadence/cds.lib
+Info: 	cadence/hdl.var
+Info: 	cadence/ncsim_setup.sh
+Info: Generating the following file(s) for RIVIERA simulator in C:/Users/Mitch/OneDrive - The University of Western Australia/ELEC5552/CodeGenerated/DE10_LITE/firpga/usb/simulation/ directory:
+Info: 	aldec/rivierapro_setup.tcl
+Info: For information on how to simulate your IP, see the explanatory comments in the simulator-specific subdirectories under C:/Users/Mitch/OneDrive - The University of Western Australia/ELEC5552/CodeGenerated/DE10_LITE/firpga/usb/simulation/.
+Info: Regenerate these scripts whenever you make any change to any Quartus-generated IP in your project.
+Info: Finished: Create Modelsim Project.
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate "C:\Users\Mitch\OneDrive - The University of Western Australia\ELEC5552\CodeGenerated\DE10_LITE\firpga\usb.qsys" --block-symbol-file --output-directory="C:\Users\Mitch\OneDrive - The University of Western Australia\ELEC5552\CodeGenerated\DE10_LITE\firpga\usb" --family="MAX 10" --part=10M50DAF484C7G
+Progress: Loading firpga/usb.qsys
+Progress: Reading input file
+Progress: Adding usb_0 [altera_up_avalon_usb 18.0]
+Progress: Parameterizing module usb_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate "C:\Users\Mitch\OneDrive - The University of Western Australia\ELEC5552\CodeGenerated\DE10_LITE\firpga\usb.qsys" --synthesis=VHDL --greybox --output-directory="C:\Users\Mitch\OneDrive - The University of Western Australia\ELEC5552\CodeGenerated\DE10_LITE\firpga\usb\synthesis" --family="MAX 10" --part=10M50DAF484C7G
+Progress: Loading firpga/usb.qsys
+Progress: Reading input file
+Progress: Adding usb_0 [altera_up_avalon_usb 18.0]
+Progress: Parameterizing module usb_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: usb: Generating usb "usb" for QUARTUS_SYNTH
+Info: usb_0: Starting Generation of USB Controller
+Info: usb_0: "usb" instantiated altera_up_avalon_usb "usb_0"
+Info: usb: Done "usb" with 2 modules, 2 files
+Info: Generating third-party timing and resource estimation model ...
+Info: Done generating third-party timing and resource estimation model.
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

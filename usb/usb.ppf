@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pinplan
+ variation_name="usb_0"
+ megafunction_name="ALTERA_UP_AVALON_USB"
+ intended_family="MAX 10"
+ specifies="all_ports">
+ <global>
+  <pin name="clk" direction="input" scope="external" />
+  <pin name="reset" direction="input" scope="external" />
+  <pin name="address[1..0]" direction="input" scope="external" />
+  <pin name="chipselect" direction="input" scope="external" />
+  <pin name="read" direction="input" scope="external" />
+  <pin name="write" direction="input" scope="external" />
+  <pin name="writedata[15..0]" direction="input" scope="external" />
+  <pin name="readdata[15..0]" direction="output" scope="external" />
+  <pin name="irq" direction="output" scope="external" />
+  <pin name="OTG_INT1" direction="input" scope="external" />
+  <pin name="OTG_DATA[15..0]" direction="bidir" scope="external" />
+  <pin name="OTG_RST_N" direction="output" scope="external" />
+  <pin name="OTG_ADDR[1..0]" direction="output" scope="external" />
+  <pin name="OTG_CS_N" direction="output" scope="external" />
+  <pin name="OTG_RD_N" direction="output" scope="external" />
+  <pin name="OTG_WR_N" direction="output" scope="external" />
+  <pin name="OTG_INT0" direction="input" scope="external" />
+ </global>
+</pinplan>

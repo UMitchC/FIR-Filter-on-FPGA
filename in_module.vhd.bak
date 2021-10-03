@@ -1,0 +1,22 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity in_module is
+	port (
+		input
+		
+		);
+		
+end in_module;
+
+
+
+
+architecture bhv of in_module is
+
+
+begin
+
+
+end bhv;

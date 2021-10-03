@@ -1,0 +1,22 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity firfilter is
+	port (
+		input
+		
+		);
+		
+end firfilter;
+
+
+
+
+architecture bhv of firfilter is
+
+
+begin
+
+
+end bhv;

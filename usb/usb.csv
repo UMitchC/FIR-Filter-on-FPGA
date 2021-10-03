@@ -1,0 +1,17 @@
+# system info usb on 2021.09.29.11:32:33
+system_info:
+name,value
+DEVICE,10M50DAF484C7G
+DEVICE_FAMILY,MAX 10
+GENERATION_ID,1632886348
+#
+#
+# Files generated for usb on 2021.09.29.11:32:33
+files:
+filepath,kind,attributes,module,is_top
+simulation/usb.vhd,VHDL,,usb,true
+#
+# Map from instance-path to kind of module
+instances:
+instancePath,module
+usb.usb_0,usb_usb_0

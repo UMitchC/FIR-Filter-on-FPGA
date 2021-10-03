@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file path="simulation/adc.vhd" type="VHDL" />
+ <topLevel name="adc" />
+ <deviceFamily name="max10" />
+</simPackage>

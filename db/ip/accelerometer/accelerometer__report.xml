@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy
+ date="2021.09.14.14:53:48"
+ outputDirectory="C:/Users/Mitch/Desktop/CodeGenerated/DE10_LITE/firpga/db/ip/accelerometer/">
+ <perimeter>
+  <parameter
+     name="AUTO_GENERATION_ID"
+     type="Integer"
+     defaultValue="0"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_UNIQUE_ID"
+     type="String"
+     defaultValue=""
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_FAMILY"
+     type="String"
+     defaultValue="MAX 10"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE"
+     type="String"
+     defaultValue="10M50DAF484C7G"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_SPEEDGRADE"
+     type="String"
+     defaultValue="7"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLK_CLOCK_RATE"
+     type="Long"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLK_CLOCK_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLK_RESET_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <interface name="avalon_accelerometer_spi_mode_slave" kind="avalon" start="0">
+   <property name="addressAlignment" value="DYNAMIC" />
+   <property name="addressGroup" value="0" />
+   <property name="addressSpan" value="2" />
+   <property name="addressUnits" value="WORDS" />
+   <property name="alwaysBurstMaxBurst" value="false" />
+   <property name="associatedClock" value="clk" />
+   <property name="associatedReset" value="reset" />
+   <property name="bitsPerSymbol" value="8" />
+   <property name="bridgedAddressOffset" value="0" />
+   <property name="bridgesToMaster" value="" />
+   <property name="burstOnBurstBoundariesOnly" value="false" />
+   <property name="burstcountUnits" value="WORDS" />
+   <property name="constantBurstBehavior" value="false" />
+   <property name="explicitAddressSpan" value="0" />
+   <property name="holdTime" value="0" />
+   <property name="interleaveBursts" value="false" />
+   <property name="isBigEndian" value="false" />
+   <property name="isFlash" value="false" />
+   <property name="isMemoryDevice" value="false" />
+   <property name="isNonVolatileStorage" value="false" />
+   <property name="linewrapBursts" value="false" />
+   <property name="maximumPendingReadTransactions" value="0" />
+   <property name="maximumPendingWriteTransactions" value="0" />
+   <property name="minimumUninterruptedRunLength" value="1" />
+   <property name="printableDevice" value="false" />
+   <property name="readLatency" value="1" />
+   <property name="readWaitStates" value="0" />
+   <property name="readWaitTime" value="0" />
+   <property name="registerIncomingSignals" value="false" />
+   <property name="registerOutgoingSignals" value="false" />
+   <property name="setupTime" value="0" />
+   <property name="timingUnits" value="Cycles" />
+   <property name="transparentBridge" value="false" />
+   <property name="wellBehavedWaitrequest" value="false" />
+   <property name="writeLatency" value="0" />
+   <property name="writeWaitStates" value="0" />
+   <property name="writeWaitTime" value="0" />
+   <port name="address" direction="input" role="address" width="1" />
+   <port name="byteenable" direction="input" role="byteenable" width="1" />
+   <port name="read" direction="input" role="read" width="1" />
+   <port name="write" direction="input" role="write" width="1" />
+   <port name="writedata" direction="input" role="writedata" width="8" />
+   <port name="readdata" direction="output" role="readdata" width="8" />
+   <port name="waitrequest" direction="output" role="waitrequest" width="1" />
+  </interface>
+  <interface name="clk" kind="clock" start="0">
+   <property name="clockRate" value="0" />
+   <property name="externallyDriven" value="false" />
+   <property name="ptfSchematicName" value="" />
+   <port name="clk" direction="input" role="clk" width="1" />
+  </interface>
+  <interface name="external_interface" kind="conduit" start="0">
+   <property name="associatedClock" value="" />
+   <property name="associatedReset" value="" />
+   <port name="I2C_SDAT" direction="bidir" role="I2C_SDAT" width="1" />
+   <port name="I2C_SCLK" direction="output" role="I2C_SCLK" width="1" />
+   <port
+       name="G_SENSOR_CS_N"
+       direction="output"
+       role="G_SENSOR_CS_N"
+       width="1" />
+   <port name="G_SENSOR_INT" direction="input" role="G_SENSOR_INT" width="1" />
+  </interface>
+  <interface name="interrupt" kind="interrupt" start="0">
+   <property
+       name="associatedAddressablePoint"
+       value="accelerometer.avalon_accelerometer_spi_mode_slave" />
+   <property name="associatedClock" value="clk" />
+   <property name="associatedReset" value="reset" />
+   <property name="bridgedReceiverOffset" value="0" />
+   <property name="bridgesToReceiver" value="" />
+   <property name="irqScheme" value="NONE" />
+   <port name="irq" direction="output" role="irq" width="1" />
+  </interface>
+  <interface name="reset" kind="reset" start="0">
+   <property name="associatedClock" value="clk" />
+   <property name="synchronousEdges" value="DEASSERT" />
+   <port name="reset" direction="input" role="reset" width="1" />
+  </interface>
+ </perimeter>
+ <entity
+   path=""
+   parameterizationKey="accelerometer:1.0:AUTO_CLK_CLOCK_DOMAIN=-1,AUTO_CLK_CLOCK_RATE=-1,AUTO_CLK_RESET_DOMAIN=-1,AUTO_DEVICE=10M50DAF484C7G,AUTO_DEVICE_FAMILY=MAX 10,AUTO_DEVICE_SPEEDGRADE=7,AUTO_GENERATION_ID=1631602427,AUTO_UNIQUE_ID=(altera_up_avalon_accelerometer_spi:18.0:AUTO_CLK_CLOCK_RATE=0,AUTO_DEVICE_FAMILY=MAX 10)"
+   instancePathKey="accelerometer"
+   kind="accelerometer"
+   version="1.0"
+   name="accelerometer">
+  <parameter name="AUTO_CLK_CLOCK_RATE" value="-1" />
+  <parameter name="AUTO_GENERATION_ID" value="1631602427" />
+  <parameter name="AUTO_DEVICE" value="10M50DAF484C7G" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="MAX 10" />
+  <parameter name="AUTO_CLK_RESET_DOMAIN" value="-1" />
+  <parameter name="AUTO_CLK_CLOCK_DOMAIN" value="-1" />
+  <parameter name="AUTO_UNIQUE_ID" value="" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="7" />
+  <generatedFiles>
+   <file
+       path="C:/Users/Mitch/Desktop/CodeGenerated/DE10_LITE/firpga/db/ip/accelerometer/accelerometer.v"
+       type="VERILOG" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="C:/Users/Mitch/Desktop/CodeGenerated/DE10_LITE/firpga/db/ip/accelerometer/submodules/altera_up_accelerometer_spi_serial_bus_controller.v"
+       type="VERILOG" />
+   <file
+       path="C:/Users/Mitch/Desktop/CodeGenerated/DE10_LITE/firpga/db/ip/accelerometer/submodules/altera_up_accelerometer_spi_slow_clock_generator.v"
+       type="VERILOG" />
+   <file
+       path="C:/Users/Mitch/Desktop/CodeGenerated/DE10_LITE/firpga/db/ip/accelerometer/submodules/altera_up_accelerometer_spi_auto_init.v"
+       type="VERILOG" />
+   <file
+       path="C:/Users/Mitch/Desktop/CodeGenerated/DE10_LITE/firpga/db/ip/accelerometer/submodules/altera_up_accelerometer_spi_auto_init_ctrl.v"
+       type="VERILOG" />
+   <file
+       path="C:/Users/Mitch/Desktop/CodeGenerated/DE10_LITE/firpga/db/ip/accelerometer/submodules/accelerometer_accelerometer_spi_0.v"
+       type="VERILOG" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file
+       path="C:/Users/Mitch/Desktop/CodeGenerated/DE10_LITE/firpga/accelerometer.qsys" />
+  </sourceFiles>
+  <childSourceFiles>
+   <file
+       path="E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_accelerometer_spi/altera_up_avalon_accelerometer_spi_hw.tcl" />
+   <file
+       path="E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_accelerometer_spi/hdl/altera_up_accelerometer_spi_serial_bus_controller.v" />
+   <file
+       path="E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_accelerometer_spi/hdl/altera_up_accelerometer_spi_slow_clock_generator.v" />
+   <file
+       path="E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_accelerometer_spi/hdl/altera_up_accelerometer_spi_auto_init.v" />
+   <file
+       path="E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_accelerometer_spi/hdl/altera_up_accelerometer_spi_auto_init_ctrl.v" />
+  </childSourceFiles>
+  <messages>
+   <message level="Debug" culprit="accelerometer">queue size: 0 starting:accelerometer "accelerometer"</message>
+   <message level="Progress" culprit="min"></message>
+   <message level="Progress" culprit="max"></message>
+   <message level="Progress" culprit="current"></message>
+   <message level="Debug">Transform: CustomInstructionTransform</message>
+   <message level="Debug">No custom instruction connections, skipping transform </message>
+   <message level="Debug" culprit="merlin_custom_instruction_transform"><![CDATA[After transform: <b>1</b> modules, <b>0</b> connections]]></message>
+   <message level="Debug">Transform: MMTransform</message>
+   <message level="Debug">Transform: InterruptMapperTransform</message>
+   <message level="Debug">Transform: InterruptSyncTransform</message>
+   <message level="Debug">Transform: InterruptFanoutTransform</message>
+   <message level="Debug">Transform: AvalonStreamingTransform</message>
+   <message level="Debug">Transform: ResetAdaptation</message>
+   <message level="Debug" culprit="accelerometer"><![CDATA["<b>accelerometer</b>" reuses <b>altera_up_avalon_accelerometer_spi</b> "<b>submodules/accelerometer_accelerometer_spi_0</b>"]]></message>
+   <message level="Debug" culprit="accelerometer">queue size: 0 starting:altera_up_avalon_accelerometer_spi "submodules/accelerometer_accelerometer_spi_0"</message>
+   <message level="Info" culprit="accelerometer_spi_0">Starting Generation of the Accelerometer Controller in SPI mode</message>
+   <message level="Info" culprit="accelerometer_spi_0"><![CDATA["<b>accelerometer</b>" instantiated <b>altera_up_avalon_accelerometer_spi</b> "<b>accelerometer_spi_0</b>"]]></message>
+  </messages>
+ </entity>
+ <entity
+   path="submodules/"
+   parameterizationKey="altera_up_avalon_accelerometer_spi:18.0:AUTO_CLK_CLOCK_RATE=0,AUTO_DEVICE_FAMILY=MAX 10"
+   instancePathKey="accelerometer:.:accelerometer_spi_0"
+   kind="altera_up_avalon_accelerometer_spi"
+   version="18.0"
+   name="accelerometer_accelerometer_spi_0">
+  <parameter name="AUTO_CLK_CLOCK_RATE" value="0" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="MAX 10" />
+  <generatedFiles>
+   <file
+       path="C:/Users/Mitch/Desktop/CodeGenerated/DE10_LITE/firpga/db/ip/accelerometer/submodules/altera_up_accelerometer_spi_serial_bus_controller.v"
+       type="VERILOG" />
+   <file
+       path="C:/Users/Mitch/Desktop/CodeGenerated/DE10_LITE/firpga/db/ip/accelerometer/submodules/altera_up_accelerometer_spi_slow_clock_generator.v"
+       type="VERILOG" />
+   <file
+       path="C:/Users/Mitch/Desktop/CodeGenerated/DE10_LITE/firpga/db/ip/accelerometer/submodules/altera_up_accelerometer_spi_auto_init.v"
+       type="VERILOG" />
+   <file
+       path="C:/Users/Mitch/Desktop/CodeGenerated/DE10_LITE/firpga/db/ip/accelerometer/submodules/altera_up_accelerometer_spi_auto_init_ctrl.v"
+       type="VERILOG" />
+   <file
+       path="C:/Users/Mitch/Desktop/CodeGenerated/DE10_LITE/firpga/db/ip/accelerometer/submodules/accelerometer_accelerometer_spi_0.v"
+       type="VERILOG" />
+  </generatedFiles>
+  <childGeneratedFiles/>
+  <sourceFiles>
+   <file
+       path="E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_accelerometer_spi/altera_up_avalon_accelerometer_spi_hw.tcl" />
+   <file
+       path="E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_accelerometer_spi/hdl/altera_up_accelerometer_spi_serial_bus_controller.v" />
+   <file
+       path="E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_accelerometer_spi/hdl/altera_up_accelerometer_spi_slow_clock_generator.v" />
+   <file
+       path="E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_accelerometer_spi/hdl/altera_up_accelerometer_spi_auto_init.v" />
+   <file
+       path="E:/intelfpga_lite/20.1/ip/altera/university_program/input_output/altera_up_avalon_accelerometer_spi/hdl/altera_up_accelerometer_spi_auto_init_ctrl.v" />
+  </sourceFiles>
+  <childSourceFiles/>
+  <instantiator instantiator="accelerometer" as="accelerometer_spi_0" />
+  <messages>
+   <message level="Debug" culprit="accelerometer">queue size: 0 starting:altera_up_avalon_accelerometer_spi "submodules/accelerometer_accelerometer_spi_0"</message>
+   <message level="Info" culprit="accelerometer_spi_0">Starting Generation of the Accelerometer Controller in SPI mode</message>
+   <message level="Info" culprit="accelerometer_spi_0"><![CDATA["<b>accelerometer</b>" instantiated <b>altera_up_avalon_accelerometer_spi</b> "<b>accelerometer_spi_0</b>"]]></message>
+  </messages>
+ </entity>
+</deploy>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file path="simulation/usb.vhd" type="VHDL" />
+ <topLevel name="usb" />
+ <deviceFamily name="max10" />
+</simPackage>
