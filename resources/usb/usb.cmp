@@ -1,0 +1,22 @@
+	component usb is
+		port (
+			address    : in    std_logic_vector(1 downto 0)  := (others => 'X'); -- address
+			chipselect : in    std_logic                     := 'X';             -- chipselect
+			read       : in    std_logic                     := 'X';             -- read
+			write      : in    std_logic                     := 'X';             -- write
+			writedata  : in    std_logic_vector(15 downto 0) := (others => 'X'); -- writedata
+			readdata   : out   std_logic_vector(15 downto 0);                    -- readdata
+			clk        : in    std_logic                     := 'X';             -- clk
+			OTG_INT1   : in    std_logic                     := 'X';             -- INT1
+			OTG_DATA   : inout std_logic_vector(15 downto 0) := (others => 'X'); -- DATA
+			OTG_RST_N  : out   std_logic;                                        -- RST_N
+			OTG_ADDR   : out   std_logic_vector(1 downto 0);                     -- ADDR
+			OTG_CS_N   : out   std_logic;                                        -- CS_N
+			OTG_RD_N   : out   std_logic;                                        -- RD_N
+			OTG_WR_N   : out   std_logic;                                        -- WR_N
+			OTG_INT0   : in    std_logic                     := 'X';             -- INT0
+			irq        : out   std_logic;                                        -- irq
+			reset      : in    std_logic                     := 'X'              -- reset
+		);
+	end component usb;
+

@@ -1,0 +1,6 @@
+DATE = "14:24:17 September 14, 2021"
+QUARTUS_VERSION = "16.0.0"
+
+# Revisions
+
+PROJECT_REVISION = "firpga"
